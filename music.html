@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>
+Music • ATIRA'S JOURNEY
+</title>
+
+<meta name="theme-color"
+content="#0d0612">
+
+<meta
+name="description"
+content="Every song has a memory. Every melody has your name.">
+
+<!-- GOOGLE FONTS -->
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<!-- GLOBAL -->
+
+<script src="js/base-path.js"></script>
+
+<link rel="stylesheet"
+href="css/global.css">
+
+<link rel="stylesheet"
+href="css/style_1.css">
+
+<link rel="stylesheet"
+href="css/style_2.css">
+
+<link rel="stylesheet"
+href="css/style_3.css">
+
+<!-- MUSIC -->
+
+<link rel="stylesheet"
+href="css/music.css">
+
+</head>
+
+<body>
+
+<!--==========================
+GLOBAL HEADER
+===========================-->
+
+<header
+class="site-header"
+id="siteHeader">
+
+<div class="site-header-container">
+
+<a
+href="index.html"
+class="site-brand">
+
+<span class="site-brand-symbol">
+
+❤
+
+</span>
+
+<span class="site-brand-text">
+
+<span class="site-brand-title">
+
+ATIRA'S JOURNEY
+
+</span>
+
+<span class="site-brand-subtitle">
+
+OUR LITTLE UNIVERSE
+
+</span>
+
+</span>
+
+</a>
+
+<button
+class="menu-toggle"
+id="menuToggle"
+type="button"
+aria-label="Open navigation menu"
+aria-expanded="false">
+
+☰
+
+</button>
+
+<nav
+class="site-nav"
+id="siteNav"
+aria-label="Main navigation">
+
+<a href="index.html">
+
+Home
+
+</a>
+
+<a href="dashboard.html">
+
+Dashboard
+
+</a>
+
+<a href="gallery.html">
+
+Gallery
+
+</a>
+
+<a href="videos.html">
+
+Videos
+
+</a>
+
+<a href="timeline.html">
+
+Memories
+
+</a>
+
+<a href="letters.html">
+
+Letters
+
+</a>
+
+<a
+href="music.html"
+class="active">
+
+Music
+
+</a>
+
+<a href="about.html">
+
+About
+
+</a>
+
+<a
+href="vault.html"
+class="vault-link">
+
+🔐 Vault
+
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<!--==========================
+BACKGROUND
+===========================-->
+
+<div class="blur blur1"></div>
+
+<div class="blur blur2"></div>
+
+<div class="blur blur3"></div>
+
+<!--==========================
+HERO
+===========================-->
+
+<section class="music-hero">
+
+<div class="container">
+
+<div class="glass music-hero-card">
+
+<span class="hero-label">
+
+NOW PLAYING
+
+</span>
+
+<h1>
+
+Our Playlist
+
+</h1>
+
+<p>
+
+Every song reminds me of you.
+
+Every lyric carries a memory.
+
+Every melody feels like home.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==========================
+PLAYER
+===========================-->
+
+<section class="music-player-section">
+
+<div class="container">
+
+<div class="glass music-player">
+
+<div class="album-side">
+
+<img
+
+id="albumCover"
+
+src=""
+
+alt="Album Cover"
+loading="lazy"
+decoding="async">
+
+</div>
+
+<div class="player-side">
+
+<span
+class="song-label">
+
+Currently Playing
+
+</span>
+
+<h2
+id="songTitle">
+
+Loading...
+
+</h2>
+
+<p
+id="songArtist">
+
+Artist
+
+</p>
+
+<div class="progress-area">
+
+<input
+
+id="progress"
+
+type="range"
+
+value="0"
+
+min="0"
+
+max="100">
+
+<div class="time">
+
+<span id="currentTime">
+
+0:00
+
+</span>
+
+<span id="duration">
+
+0:00
+
+</span>
+
+</div>
+
+</div>
+
+<div class="controls">
+
+<button id="prevBtn">
+
+⏮
+
+</button>
+
+<button id="playBtn">
+
+▶
+
+</button>
+
+<button id="nextBtn">
+
+⏭
+
+</button>
+
+</div>
+
+<div class="volume-wrap">
+
+🔊
+
+<input
+
+id="volume"
+
+type="range"
+
+min="0"
+
+max="1"
+
+step=".01"
+
+value="1">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==========================
+PLAYLIST
+===========================-->
+
+<section class="playlist-section">
+
+<div class="container">
+
+<div class="playlist-header">
+
+<h2>
+
+Our Songs
+
+</h2>
+
+<input
+
+id="musicSearch"
+
+type="text"
+
+placeholder="Search songs...">
+
+</div>
+
+<div
+id="playlist"
+class="playlist-grid">
+
+</div>
+
+</div>
+
+</section>
+
+<!--==========================
+VISUALIZER
+===========================-->
+
+<section class="visualizer-section">
+
+<div class="container">
+
+<div class="visualizer">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+</div>
+
+</section>
+
+<!--==========================
+AUDIO
+===========================-->
+
+<audio
+id="audioPlayer">
+
+</audio>
+
+<!--==========================
+FOOTER
+===========================-->
+
+<footer
+class="dashboard-footer">
+
+<div class="container">
+
+<h3>
+
+ATIRA'S JOURNEY
+
+</h3>
+
+<p>
+
+Our memories sound even more beautiful.
+
+</p>
+
+<br>
+
+<p>
+
+Made with
+
+<span class="footer-heart">
+
+❤
+
+</span>
+
+by
+
+<strong>
+
+Anubhab
+
+</strong>
+
+</p>
+
+<br>
+
+<p style="opacity:.45">
+
+© 2026
+
+</p>
+
+</div>
+
+</footer>
+
+<!--==========================
+SCRIPTS
+===========================-->
+
+<script src="js/app.js"></script>
+
+<script src="data/musicData.js"></script>
+
+<script src="js/music.js"></script>
+
+</body>
+
+</html>

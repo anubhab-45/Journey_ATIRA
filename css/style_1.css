@@ -1,0 +1,1117 @@
+/*==================================================
+  ATIRA'S JOURNEY
+  Global Design System
+  File : style_1.css
+  Part : 1/4
+==================================================*/
+
+/*==============================
+GOOGLE FONTS
+==============================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/*==============================
+RESET
+==============================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+*::before,
+*::after{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    overflow-x:hidden;
+    min-height:100vh;
+    font-family:'Poppins',sans-serif;
+}
+
+/*==============================
+ROOT VARIABLES
+==============================*/
+
+:root{
+
+    /* Main Theme */
+
+    --bg-dark:#09070d;
+    --bg-secondary:#140b16;
+    --bg-third:#1c101f;
+
+    /* Crimson */
+
+    --crimson:#d90429;
+    --crimson-light:#ef476f;
+    --rose:#ff8fab;
+
+    /* Text */
+
+    --white:#ffffff;
+    --text:#ececec;
+    --muted:#bbbbbb;
+
+    /* Glass */
+
+    --glass-bg:rgba(255,255,255,.055);
+    --glass-border:rgba(255,255,255,.12);
+
+    /* Radius */
+
+    --radius:28px;
+
+    /* Shadow */
+
+    --shadow-soft:
+    0 15px 35px rgba(0,0,0,.30);
+
+    --shadow-glow:
+    0 0 80px rgba(217,4,41,.18);
+
+    /* Transition */
+
+    --transition:.45s ease;
+
+}
+
+/*==============================
+BODY
+==============================*/
+
+body{
+
+    color:var(--white);
+
+    background:
+    linear-gradient(
+    135deg,
+    #070509 0%,
+    #120914 30%,
+    #170d18 65%,
+    #09070d 100%);
+
+    position:relative;
+
+    line-height:1.7;
+
+}
+
+/*==============================
+TYPOGRAPHY
+==============================*/
+
+h1,
+h2,
+h3,
+h4{
+
+    font-family:'Cinzel',serif;
+
+    font-weight:600;
+
+}
+
+p{
+
+    color:var(--text);
+
+}
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+/*==============================
+COMMON CONTAINER
+==============================*/
+
+.container{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+}
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at 15% 20%,
+    rgba(217,4,41,.18),
+    transparent 28%),
+
+    radial-gradient(circle at 85% 18%,
+    rgba(255,143,171,.12),
+    transparent 24%),
+
+    radial-gradient(circle at 50% 80%,
+    rgba(217,4,41,.10),
+    transparent 35%);
+
+    animation:backgroundMove 24s ease-in-out infinite alternate;
+
+    z-index:-5;
+
+}
+
+/*==============================
+AMBIENT OVERLAY
+==============================*/
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+    rgba(0,0,0,.08),
+
+    rgba(0,0,0,.25)
+
+    );
+
+    pointer-events:none;
+
+    z-index:-4;
+
+}
+
+/*==============================
+FLOATING CRIMSON LIGHT
+==============================*/
+
+.bg-light{
+
+    position:fixed;
+
+    border-radius:50%;
+
+    filter:blur(130px);
+
+    pointer-events:none;
+
+    z-index:-3;
+
+}
+
+.light-left{
+
+    width:420px;
+
+    height:420px;
+
+    left:-150px;
+
+    top:-80px;
+
+    background:rgba(217,4,41,.22);
+
+    animation:floatLeft 16s ease-in-out infinite;
+
+}
+
+.light-right{
+
+    width:360px;
+
+    height:360px;
+
+    right:-120px;
+
+    top:25%;
+
+    background:rgba(255,143,171,.15);
+
+    animation:floatRight 18s ease-in-out infinite;
+
+}
+
+.light-bottom{
+
+    width:520px;
+
+    height:520px;
+
+    bottom:-220px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:rgba(217,4,41,.15);
+
+    animation:pulseGlow 10s ease-in-out infinite;
+
+}
+
+/*==============================
+NOISE TEXTURE
+==============================*/
+
+.noise{
+
+    position:fixed;
+
+    inset:0;
+
+    opacity:.03;
+
+    pointer-events:none;
+
+    z-index:-2;
+
+    background-image:
+
+    radial-gradient(circle,
+    rgba(255,255,255,.8) 1px,
+    transparent 1px);
+
+    background-size:22px 22px;
+
+}
+
+/*==============================
+COMMON SECTION
+==============================*/
+
+section{
+
+    position:relative;
+
+    padding:80px 0;
+
+}
+
+/*==============================
+HEADINGS
+==============================*/
+
+.section-title{
+
+    font-size:clamp(2rem,5vw,4rem);
+
+    text-align:center;
+
+    letter-spacing:4px;
+
+    color:var(--white);
+
+    margin-bottom:20px;
+
+    text-shadow:
+
+    0 0 18px rgba(217,4,41,.25);
+
+}
+
+.section-subtitle{
+
+    max-width:720px;
+
+    margin:auto;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    line-height:2;
+
+}
+
+/*==============================
+SELECTION
+==============================*/
+
+::selection{
+
+    background:var(--crimson);
+
+    color:white;
+
+}
+
+/*==============================
+SCROLLBAR
+==============================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#09070d;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:
+
+    linear-gradient(
+
+    var(--crimson),
+
+    var(--rose)
+
+    );
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#ff4f7b;
+
+}.glass{
+
+    position:relative;
+
+    background:rgba(255,255,255,.055);
+
+    backdrop-filter:blur(24px);
+
+    -webkit-backdrop-filter:blur(24px);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    border-radius:var(--radius);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.35),
+        0 0 80px rgba(217,4,41,.08);
+
+    overflow:hidden;
+
+    transition:all .45s ease;
+
+}
+
+/* Soft Highlight */
+
+.glass::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,.10),
+        transparent 35%,
+        transparent 65%,
+        rgba(255,255,255,.05)
+    );
+
+    pointer-events:none;
+
+}
+
+/* Hover */
+
+.glass:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(255,143,171,.22);
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,.45),
+        0 0 100px rgba(217,4,41,.16);
+
+}
+
+/*==============================
+COMMON CARD
+==============================*/
+
+.card{
+
+    padding:28px;
+
+    border-radius:24px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:all .45s ease;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(255,143,171,.18);
+
+    background:rgba(255,255,255,.06);
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,.35),
+
+    0 0 45px rgba(217,4,41,.12);
+
+}
+
+/*==============================
+BUTTON
+==============================*/
+
+.btn{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:16px 40px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:rgba(255,255,255,.06);
+
+    color:var(--white);
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:all .4s ease;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+/* Shine Effect */
+
+.btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:60px;
+
+    height:180%;
+
+    background:rgba(255,255,255,.18);
+
+    top:-40%;
+
+    left:-80px;
+
+    transform:rotate(25deg);
+
+    transition:.8s;
+
+}
+
+.btn:hover::before{
+
+    left:120%;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+    background:linear-gradient(
+
+        135deg,
+
+        rgba(217,4,41,.85),
+
+        rgba(255,143,171,.70)
+
+    );
+
+    border-color:transparent;
+
+    box-shadow:
+
+    0 15px 35px rgba(217,4,41,.35),
+
+    0 0 60px rgba(217,4,41,.25);
+
+}
+
+/*==============================
+TEXT UTILITIES
+==============================*/
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.text-muted{
+
+    color:var(--muted);
+
+}
+
+.crimson{
+
+    color:var(--crimson-light);
+
+}
+
+.rose{
+
+    color:var(--rose);
+
+}
+
+/*==============================
+SPACING
+==============================*/
+
+.mt-1{margin-top:10px;}
+.mt-2{margin-top:20px;}
+.mt-3{margin-top:30px;}
+.mt-4{margin-top:40px;}
+.mt-5{margin-top:60px;}
+
+.mb-1{margin-bottom:10px;}
+.mb-2{margin-bottom:20px;}
+.mb-3{margin-bottom:30px;}
+.mb-4{margin-bottom:40px;}
+.mb-5{margin-bottom:60px;}
+/*==================================================
+  ATIRA'S JOURNEY
+  Global Design System
+  File : style_1.css
+  Part : 4/4
+==================================================*/
+
+
+/*=====================================
+ANIMATIONS
+======================================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+.fade-up{
+
+    animation:fadeUp 1s ease forwards;
+
+}
+
+@keyframes floatLeft{
+
+    0%{
+
+        transform:translate(0,0);
+
+    }
+
+    100%{
+
+        transform:translate(60px,-40px);
+
+    }
+
+}
+
+@keyframes floatRight{
+
+    0%{
+
+        transform:translate(0,0);
+
+    }
+
+    100%{
+
+        transform:translate(-70px,50px);
+
+    }
+
+}
+
+@keyframes pulseGlow{
+
+    0%{
+
+        transform:translateX(-50%) scale(1);
+
+        opacity:.12;
+
+    }
+
+    50%{
+
+        transform:translateX(-50%) scale(1.12);
+
+        opacity:.22;
+
+    }
+
+    100%{
+
+        transform:translateX(-50%) scale(1);
+
+        opacity:.12;
+
+    }
+
+}
+
+@keyframes backgroundMove{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    100%{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+
+/*=====================================
+COMMON FLEX
+======================================*/
+
+.flex{
+
+    display:flex;
+
+}
+
+.flex-center{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.space-between{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+/*=====================================
+GRID
+======================================*/
+
+.grid{
+
+    display:grid;
+
+    gap:25px;
+
+}
+
+.grid-2{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.grid-3{
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+.grid-4{
+
+    grid-template-columns:repeat(4,1fr);
+
+}
+
+
+/*=====================================
+IMAGE
+======================================*/
+
+.image-cover{
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+}
+
+.image-cover img{
+
+    transition:.6s;
+
+}
+
+.image-cover:hover img{
+
+    transform:scale(1.08);
+
+}
+
+
+/*=====================================
+SECTION SPACING
+======================================*/
+
+.section{
+
+    padding:100px 0;
+
+}
+
+
+/*=====================================
+HOVER GLOW
+======================================*/
+
+.hover-glow{
+
+    transition:.4s;
+
+}
+
+.hover-glow:hover{
+
+    box-shadow:
+
+    0 0 35px rgba(217,4,41,.25);
+
+}
+
+
+/*=====================================
+TEXT SHADOW
+======================================*/
+
+.glow-text{
+
+    text-shadow:
+
+    0 0 18px rgba(217,4,41,.35);
+
+}
+
+
+/*=====================================
+DIVIDER
+======================================*/
+
+.divider{
+
+    width:120px;
+
+    height:2px;
+
+    margin:25px auto;
+
+    background:
+
+    linear-gradient(
+
+    to right,
+
+    transparent,
+
+    var(--crimson),
+
+    transparent
+
+    );
+
+}
+
+
+/*=====================================
+RESPONSIVE
+======================================*/
+
+@media(max-width:992px){
+
+.grid-4{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.grid-3{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+
+@media(max-width:768px){
+
+.section{
+
+    padding:70px 0;
+
+}
+
+.container{
+
+    width:94%;
+
+}
+
+.grid-2,
+.grid-3,
+.grid-4{
+
+    grid-template-columns:1fr;
+
+}
+
+.btn{
+
+    width:100%;
+
+}
+
+.section-title{
+
+    letter-spacing:2px;
+
+}
+
+}
+
+
+@media(max-width:480px){
+
+body{
+
+    font-size:15px;
+
+}
+
+.section-title{
+
+    font-size:2rem;
+
+}
+
+}
+
+
+/*=====================================
+END OF style_1.css
+======================================*/
+/*=====================================
+FLOATING MUSIC PLAYER
+======================================*/
+
+.music-player{
+
+    position:fixed;
+
+    right:24px;
+
+    bottom:24px;
+
+    z-index:9999;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 10px;
+
+    border-radius:999px;
+
+    background:linear-gradient(135deg,
+        rgba(255,255,255,.09),
+        rgba(255,255,255,.04));
+
+    backdrop-filter:blur(16px);
+
+    -webkit-backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.28),
+        0 0 45px rgba(217,4,41,.12);
+
+    overflow:hidden;
+
+}
+
+.music-player::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,.11),
+        transparent 35%,
+        transparent 65%,
+        rgba(255,255,255,.05)
+    );
+
+    pointer-events:none;
+
+}
+
+.music-btn{
+
+    position:relative;
+
+    z-index:1;
+
+    width:40px;
+
+    height:40px;
+
+    border:1px solid rgba(255,255,255,.16);
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:linear-gradient(135deg,
+        var(--crimson),
+        var(--rose));
+
+    color:white;
+
+    font-size:.95rem;
+
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.18);
+
+    transition:.3s ease;
+
+}
+
+.music-btn:hover{
+
+    transform:translateY(-2px) scale(1.02);
+
+    box-shadow:0 10px 20px rgba(217,4,41,.18);
+
+}
+
+#musicVolume{
+
+    position:relative;
+
+    z-index:1;
+
+    width:88px;
+
+    height:4px;
+
+    border-radius:999px;
+
+    accent-color:var(--rose);
+
+    cursor:pointer;
+
+}
+
+@media(max-width:768px){
+
+.music-player{
+
+right:14px;
+
+bottom:14px;
+
+padding:7px 9px;
+
+}
+
+#musicVolume{
+
+width:72px;
+
+}
+
+}

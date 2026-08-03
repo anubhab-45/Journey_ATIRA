@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Our Memories • ATIRA'S JOURNEY</title>
+
+    <meta
+        name="description"
+        content="A collection of memories from ATIRA'S JOURNEY.">
+
+    <meta
+        name="theme-color"
+        content="#0d0612">
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- GLOBAL CSS -->
+
+    <script src="js/base-path.js"></script>
+
+    <link
+        rel="stylesheet"
+        href="css/global.css">
+
+
+    <!-- MAIN CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/style_1.css">
+
+    <link
+        rel="stylesheet"
+        href="css/style_2.css">
+
+    <link
+        rel="stylesheet"
+        href="css/style_3.css">
+
+
+    <!-- TIMELINE CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/timeline.css">
+
+</head>
+
+
+<body>
+
+
+<!--==================================================
+    GLOBAL HEADER
+==================================================-->
+
+<header
+    class="site-header"
+    id="siteHeader">
+
+    <div class="site-header-container">
+
+
+        <!-- BRAND -->
+
+        <a
+            href="index.html"
+            class="site-brand">
+
+            <span class="site-brand-symbol">
+                ❤
+            </span>
+
+            <span class="site-brand-text">
+
+                <span class="site-brand-title">
+                    ATIRA'S JOURNEY
+                </span>
+
+                <span class="site-brand-subtitle">
+                    OUR LITTLE UNIVERSE
+                </span>
+
+            </span>
+
+        </a>
+
+
+        <!-- MOBILE MENU -->
+
+        <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+
+            ☰
+
+        </button>
+
+
+        <!-- NAVIGATION -->
+
+        <nav
+            class="site-nav"
+            id="siteNav"
+            aria-label="Main navigation">
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+
+            <a href="gallery.html">
+                Gallery
+            </a>
+
+
+            <a href="videos.html">
+                Videos
+            </a>
+
+
+            <a href="timeline.html">
+                Memories
+            </a>
+
+
+            <a href="letters.html">
+                Letters
+            </a>
+
+
+            <a href="music.html">
+                Music
+            </a>
+
+
+            <a href="about.html">
+                About
+            </a>
+
+
+            <a
+                href="vault.html"
+                class="vault-link">
+
+                🔐 Vault
+
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!--==================================================
+    BACKGROUND
+==================================================-->
+
+<div class="blur blur1"></div>
+
+<div class="blur blur2"></div>
+
+<div class="blur blur3"></div>
+
+
+
+<!--==================================================
+    HERO
+==================================================-->
+
+<section class="timeline-hero">
+
+    <div class="container">
+
+        <div class="glass timeline-hero-card">
+
+
+            <span class="hero-label">
+                OUR MEMORIES
+            </span>
+
+
+            <h1>
+
+                The Memories
+
+                <span class="crimson">
+                    We Keep
+                </span>
+
+            </h1>
+
+
+            <div class="divider"></div>
+
+
+            <p>
+
+                Not every memory needs a date.
+
+                Some moments are remembered
+
+                simply because they made us smile,
+
+                laugh, or feel a little closer.
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!--==================================================
+    MEMORY SECTION
+==================================================-->
+
+<section class="timeline-section">
+
+    <div class="container">
+
+
+        <div class="timeline-heading">
+
+            <span class="hero-label">
+                OUR LITTLE COLLECTION
+            </span>
+
+
+            <h2 class="section-title">
+                Moments That Stayed
+            </h2>
+
+
+            <p class="text-muted">
+
+                Every card holds a small piece
+
+                of our journey.
+
+            </p>
+
+        </div>
+
+
+
+        <!--================================================
+            MEMORY GRID
+        =================================================-->
+
+        <div
+            class="timeline-grid"
+            id="timelineGrid">
+
+        </div>
+
+
+
+        <!--================================================
+            EMPTY STATE
+        =================================================-->
+
+        <div
+            class="timeline-empty"
+            id="timelineEmpty"
+            hidden>
+
+            <div class="glass timeline-empty-card">
+
+                <div class="empty-icon">
+                    ♡
+                </div>
+
+                <h3>
+                    No memories yet
+                </h3>
+
+                <p>
+                    This little space is waiting
+                    for another beautiful memory.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!--==================================================
+    MEMORY MODAL
+==================================================-->
+
+<div
+    class="timeline-modal"
+    id="timelineModal"
+    aria-hidden="true">
+
+
+    <div
+        class="timeline-modal-overlay"
+        id="timelineModalOverlay">
+    </div>
+
+
+    <div class="glass timeline-modal-content">
+
+
+        <button
+            type="button"
+            class="timeline-close"
+            id="timelineClose"
+            aria-label="Close memory">
+
+            ×
+
+        </button>
+
+
+        <div
+            id="timelineModalMedia"
+            class="timeline-modal-media">
+
+        </div>
+
+
+        <div class="timeline-modal-info">
+
+
+            <span
+                class="timeline-modal-category"
+                id="timelineModalCategory">
+
+                MEMORY
+
+            </span>
+
+
+            <h2
+                id="timelineModalTitle">
+
+                Memory
+
+            </h2>
+
+
+            <p
+                id="timelineModalDescription">
+
+            </p>
+
+
+            <div
+                class="timeline-modal-footer">
+
+                <span>
+                    ❤ Kept in our little universe
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!--==================================================
+    FOOTER
+==================================================-->
+
+<footer class="site-footer">
+
+    <div class="site-footer-inner">
+
+
+        <h3>
+            ATIRA'S JOURNEY
+        </h3>
+
+
+        <p>
+            Every memory has a place.
+            Every story has a home.
+        </p>
+
+
+        <div class="site-footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="gallery.html">
+                Gallery
+            </a>
+
+            <a href="videos.html">
+                Videos
+            </a>
+
+            <a href="timeline.html">
+                Memories
+            </a>
+
+            <a href="letters.html">
+                Letters
+            </a>
+
+            <a href="music.html">
+                Music
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="vault.html">
+                🔐 Vault
+            </a>
+
+        </div>
+
+
+        <p>
+
+            Made with
+
+            <span class="footer-heart">
+                ❤
+            </span>
+
+            by
+
+            <strong>
+                Anubhab
+            </strong>
+
+        </p>
+
+
+        <p
+            class="site-footer-copy">
+
+            ©
+            <span data-current-year>
+                2026
+            </span>
+
+            ATIRA'S JOURNEY
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!--==================================================
+    SCRIPTS
+==================================================-->
+
+<script src="js/app.js"></script>
+
+<script src="data/memories.js"></script>
+
+<script src="js/timeline.js"></script>
+
+
+</body>
+
+</html>

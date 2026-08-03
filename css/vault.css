@@ -1,0 +1,1108 @@
+/*==================================================
+  ATIRA'S JOURNEY
+  MEMORY VAULT
+  vault.css
+==================================================*/
+
+
+/*==================================================
+  HERO
+==================================================*/
+
+.vault-hero{
+
+    padding:90px 0 55px;
+
+    text-align:center;
+
+}
+
+
+.vault-hero-card{
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:55px 40px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.vault-hero-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:inherit;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,143,171,.16),
+            transparent 55%
+        );
+
+    pointer-events:none;
+
+}
+
+
+.vault-symbol{
+
+    position:relative;
+
+    font-size:4.5rem;
+
+    margin:20px 0;
+
+    filter:
+
+        drop-shadow(
+            0 0 25px
+            rgba(255,143,171,.3)
+        );
+
+    animation:vaultFloat 4s ease-in-out infinite;
+
+}
+
+
+@keyframes vaultFloat{
+
+    0%,
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+}
+
+
+.vault-hero-card h1{
+
+    position:relative;
+
+    font-family:"Cinzel",serif;
+
+    font-size:4rem;
+
+    margin:10px 0 22px;
+
+    color:#fff;
+
+}
+
+
+.vault-hero-card h1 span{
+
+    color:var(--rose);
+
+}
+
+
+.vault-hero-card > p{
+
+    position:relative;
+
+    max-width:700px;
+
+    margin:25px auto;
+
+    color:var(--muted);
+
+    line-height:2;
+
+    font-size:1.05rem;
+
+}
+
+
+.vault-intro{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:30px;
+
+    color:rgba(255,255,255,.75);
+
+    font-size:.9rem;
+
+    letter-spacing:1px;
+
+}
+
+
+.vault-intro span{
+
+    color:var(--rose);
+
+}
+
+
+/*==================================================
+  VAULT SECTION
+==================================================*/
+
+.vault-section{
+
+    padding:55px 0 80px;
+
+}
+
+
+.vault-heading{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+
+.vault-heading p{
+
+    color:var(--muted);
+
+    margin-top:12px;
+
+}
+
+
+/*==================================================
+  GRID
+==================================================*/
+
+.vault-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(
+            3,
+            minmax(0,1fr)
+        );
+
+    gap:25px;
+
+}
+
+
+/*==================================================
+  MEMORY CARD
+==================================================*/
+
+.vault-card{
+
+    position:relative;
+
+    min-height:280px;
+
+    padding:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    border-radius:26px;
+
+    border:1px solid
+        rgba(255,255,255,.09);
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.025)
+        );
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+
+        0 20px 45px
+        rgba(0,0,0,.22);
+
+    transition:
+
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+
+}
+
+
+.vault-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    top:-90px;
+
+    right:-70px;
+
+    border-radius:50%;
+
+    background:
+
+        rgba(255,143,171,.12);
+
+    filter:blur(25px);
+
+    transition:.4s;
+
+}
+
+
+.vault-card:hover{
+
+    transform:translateY(-9px);
+
+    border-color:
+
+        rgba(255,143,171,.3);
+
+    box-shadow:
+
+        0 25px 60px
+        rgba(0,0,0,.35),
+
+        0 0 35px
+        rgba(217,4,41,.12);
+
+}
+
+
+.vault-card:hover::before{
+
+    transform:scale(1.35);
+
+}
+
+
+.vault-card-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+.vault-card-category{
+
+    color:var(--rose);
+
+    font-size:.75rem;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+.vault-card-lock{
+
+    font-size:1.35rem;
+
+    opacity:.8;
+
+}
+
+
+.vault-card-icon{
+
+    font-size:3rem;
+
+    margin:25px 0 18px;
+
+    filter:
+
+        drop-shadow(
+            0 5px 15px
+            rgba(0,0,0,.3)
+        );
+
+}
+
+
+.vault-card h3{
+
+    color:#fff;
+
+    font-family:"Cinzel",serif;
+
+    font-size:1.3rem;
+
+    margin-bottom:10px;
+
+}
+
+
+.vault-card-description{
+
+    color:var(--muted);
+
+    line-height:1.7;
+
+    font-size:.92rem;
+
+}
+
+
+.vault-card-action{
+
+    margin-top:25px;
+
+    padding-top:18px;
+
+    border-top:
+
+        1px solid
+        rgba(255,255,255,.07);
+
+}
+
+
+.vault-card-action span{
+
+    color:rgba(255,255,255,.7);
+
+    font-size:.8rem;
+
+    letter-spacing:1px;
+
+    transition:.3s;
+
+}
+
+
+.vault-card:hover
+.vault-card-action span{
+
+    color:var(--rose);
+
+}
+
+
+/*==================================================
+  EMPTY STATE
+==================================================*/
+
+.vault-empty{
+
+    display:none;
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    color:var(--muted);
+
+}
+
+
+/*==================================================
+  MODAL
+==================================================*/
+
+.vault-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:6000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:25px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:
+
+        opacity .35s ease,
+        visibility .35s ease;
+
+}
+
+
+.vault-modal.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+.vault-modal-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        rgba(0,0,0,.88);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+}
+
+
+.vault-modal-content{
+
+    position:relative;
+
+    z-index:2;
+
+    width:min(700px,94vw);
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    padding:45px;
+
+    border-radius:30px;
+
+    border:
+
+        1px solid
+        rgba(255,255,255,.12);
+
+    box-shadow:
+
+        0 30px 90px
+        rgba(0,0,0,.55),
+
+        0 0 70px
+        rgba(217,4,41,.12);
+
+    transform:scale(.88);
+
+    transition:transform .4s ease;
+
+}
+
+
+.vault-modal.show
+.vault-modal-content{
+
+    transform:scale(1);
+
+}
+
+
+/*==================================================
+  CLOSE
+==================================================*/
+
+.vault-close{
+
+    position:absolute;
+
+    top:18px;
+
+    right:20px;
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    border:
+
+        1px solid
+        rgba(255,255,255,.12);
+
+    background:
+
+        rgba(255,255,255,.07);
+
+    color:#fff;
+
+    font-size:1.7rem;
+
+    line-height:1;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    z-index:5;
+
+}
+
+
+.vault-close:hover{
+
+    background:
+
+        rgba(217,4,41,.8);
+
+    transform:rotate(90deg);
+
+}
+
+
+/*==================================================
+  UNLOCK ANIMATION
+==================================================*/
+
+.unlock-animation{
+
+    min-height:350px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+
+.unlock-icon{
+
+    font-size:5rem;
+
+    margin-bottom:20px;
+
+    animation:
+
+        unlockPulse 1s ease-in-out infinite;
+
+}
+
+
+.unlock-animation p{
+
+    color:#fff;
+
+    font-family:"Cinzel",serif;
+
+    font-size:1.3rem;
+
+    letter-spacing:2px;
+
+}
+
+
+@keyframes unlockPulse{
+
+    0%{
+
+        transform:scale(.92);
+
+        opacity:.65;
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(.92);
+
+        opacity:.65;
+
+    }
+
+}
+
+
+/*==================================================
+  MEMORY CONTENT
+==================================================*/
+
+.vault-memory-content{
+
+    display:none;
+
+    text-align:center;
+
+    animation:
+
+        memoryReveal .55s ease;
+
+}
+
+
+@keyframes memoryReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+.vault-memory-category{
+
+    display:inline-block;
+
+    color:var(--rose);
+
+    font-size:.75rem;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+
+}
+
+
+.vault-memory-content h2{
+
+    font-family:"Cinzel",serif;
+
+    color:#fff;
+
+    font-size:2.1rem;
+
+    margin:0;
+
+}
+
+
+.vault-memory-line{
+
+    width:70px;
+
+    height:2px;
+
+    margin:20px auto 25px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--crimson),
+            var(--rose)
+        );
+
+    border-radius:999px;
+
+}
+
+
+/*==================================================
+  IMAGE
+==================================================*/
+
+.vault-memory-image-wrap{
+
+    display:none;
+
+    justify-content:center;
+
+    margin:0 auto 25px;
+
+}
+
+
+.vault-memory-image-wrap.show{
+
+    display:flex;
+
+}
+
+
+.vault-memory-image{
+
+    max-width:100%;
+
+}
+
+
+.vault-memory-image-wrap img{
+
+    max-width:100%;
+
+    max-height:420px;
+
+    border-radius:20px;
+
+    object-fit:contain;
+
+    box-shadow:
+
+        0 20px 50px
+        rgba(0,0,0,.4);
+
+}
+
+
+/*==================================================
+  MEMORY TEXT
+==================================================*/
+
+.vault-memory-text{
+
+    max-width:590px;
+
+    margin:0 auto;
+
+    color:var(--muted);
+
+    line-height:2;
+
+    font-size:1rem;
+
+    white-space:pre-line;
+
+}
+
+
+/*==================================================
+  MEMORY FOOTER
+==================================================*/
+
+.vault-memory-footer{
+
+    margin-top:30px;
+
+    padding-top:20px;
+
+    border-top:
+
+        1px solid
+        rgba(255,255,255,.08);
+
+}
+
+
+.vault-memory-footer span{
+
+    color:rgba(255,255,255,.55);
+
+    font-size:.8rem;
+
+    letter-spacing:1px;
+
+}
+
+
+/*==================================================
+  ENDING
+==================================================*/
+
+.vault-ending{
+
+    padding:70px 0 100px;
+
+}
+
+
+.vault-ending-card{
+
+    max-width:850px;
+
+    margin:auto;
+
+    padding:60px 40px;
+
+    text-align:center;
+
+}
+
+
+.ending-symbol{
+
+    font-size:4rem;
+
+    color:var(--rose);
+
+    margin:15px 0;
+
+}
+
+
+.vault-ending-card h2{
+
+    font-family:"Cinzel",serif;
+
+    font-size:2.5rem;
+
+    color:#fff;
+
+    line-height:1.35;
+
+    margin:20px auto;
+
+}
+
+
+.vault-ending-card p{
+
+    color:var(--muted);
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
+}
+
+
+.vault-ending-card h3{
+
+    color:#fff;
+
+    font-weight:400;
+
+    font-size:1.2rem;
+
+    margin:15px 0;
+
+}
+
+
+.ending-final{
+
+    margin-top:25px;
+
+}
+
+
+.ending-heart{
+
+    color:var(--rose);
+
+    font-size:2.3rem;
+
+    margin:25px 0 12px;
+
+    animation:
+
+        heartBeat 1.8s ease-in-out infinite;
+
+}
+
+
+@keyframes heartBeat{
+
+    0%,
+    100%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.12);
+
+    }
+
+}
+
+
+.ending-signature{
+
+    color:rgba(255,255,255,.5);
+
+    font-size:.75rem;
+
+    letter-spacing:3px;
+
+}
+
+
+/*==================================================
+  BODY WHEN MODAL OPEN
+==================================================*/
+
+body.vault-open{
+
+    overflow:hidden;
+
+}
+
+
+/*==================================================
+  RESPONSIVE
+==================================================*/
+
+@media(max-width:950px){
+
+    .vault-grid{
+
+        grid-template-columns:
+
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .vault-hero{
+
+        padding:60px 0 40px;
+
+    }
+
+
+    .vault-hero-card{
+
+        padding:40px 22px;
+
+    }
+
+
+    .vault-hero-card h1{
+
+        font-size:2.7rem;
+
+    }
+
+
+    .vault-symbol{
+
+        font-size:3.5rem;
+
+    }
+
+
+    .vault-intro{
+
+        font-size:.78rem;
+
+        line-height:1.7;
+
+    }
+
+
+    .vault-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .vault-card{
+
+        min-height:250px;
+
+    }
+
+
+    .vault-modal{
+
+        padding:12px;
+
+    }
+
+
+    .vault-modal-content{
+
+        padding:40px 20px 30px;
+
+        max-height:92vh;
+
+    }
+
+
+    .vault-memory-content h2{
+
+        font-size:1.7rem;
+
+    }
+
+
+    .vault-ending-card{
+
+        padding:45px 22px;
+
+    }
+
+
+    .vault-ending-card h2{
+
+        font-size:1.9rem;
+
+    }
+
+}

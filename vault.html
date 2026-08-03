@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Memory Vault • ATIRA'S JOURNEY</title>
+
+    <meta name="description"
+          content="The final destination of ATIRA'S JOURNEY — a private vault of memories kept forever.">
+
+    <meta name="theme-color"
+          content="#0d0612">
+
+
+    <!--========================================
+    GOOGLE FONTS
+    =========================================-->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!--========================================
+    GLOBAL CSS
+    =========================================-->
+
+    <script src="js/base-path.js"></script>
+
+    <link rel="stylesheet"
+          href="css/global.css">
+
+
+    <!--========================================
+    MAIN CSS
+    =========================================-->
+
+    <link rel="stylesheet"
+          href="css/style_1.css">
+
+    <link rel="stylesheet"
+          href="css/style_2.css">
+
+    <link rel="stylesheet"
+          href="css/style_3.css">
+
+
+    <!--========================================
+    VAULT CSS
+    =========================================-->
+
+    <link rel="stylesheet"
+          href="css/vault.css">
+
+</head>
+
+
+<body>
+
+
+<!--========================================
+BACKGROUND LIGHTS
+=========================================-->
+
+<div class="blur blur1"></div>
+
+<div class="blur blur2"></div>
+
+<div class="blur blur3"></div>
+
+
+
+<!--========================================
+GLOBAL HEADER
+=========================================-->
+
+<header
+    class="site-header"
+    id="siteHeader">
+
+    <div class="site-header-container">
+
+
+        <!-- BRAND -->
+
+        <a
+            href="index.html"
+            class="site-brand">
+
+            <span class="site-brand-symbol">
+                ❤
+            </span>
+
+            <span class="site-brand-text">
+
+                <span class="site-brand-title">
+                    ATIRA'S JOURNEY
+                </span>
+
+                <span class="site-brand-subtitle">
+                    OUR LITTLE UNIVERSE
+                </span>
+
+            </span>
+
+        </a>
+
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+
+            ☰
+
+        </button>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav
+            class="site-nav"
+            id="siteNav"
+            aria-label="Main navigation">
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+
+            <a href="gallery.html">
+                Gallery
+            </a>
+
+
+            <a href="videos.html">
+                Videos
+            </a>
+
+            <a href="timeline.html">
+                Memories
+            </a>
+
+            <a href="letters.html">
+                Letters
+            </a>
+
+
+            <a href="music.html">
+                Music
+            </a>
+
+
+            <a href="about.html">
+                About
+            </a>
+
+
+            <a
+                href="vault.html"
+                class="active vault-link">
+
+                🔐 Vault
+
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!--========================================
+MAIN
+=========================================-->
+
+<main class="page-with-header">
+
+
+
+<!--========================================
+VAULT HERO
+=========================================-->
+
+<section class="vault-hero">
+
+    <div class="container">
+
+        <div class="glass vault-hero-card">
+
+
+            <span class="hero-label">
+
+                THE FINAL DESTINATION
+
+            </span>
+
+
+            <div class="vault-symbol">
+
+                🔐
+
+            </div>
+
+
+            <h1>
+
+                Memory
+
+                <span>
+
+                    Vault
+
+                </span>
+
+            </h1>
+
+
+            <div class="divider"></div>
+
+
+            <p>
+
+                Some memories are meant to be seen.
+
+                Some are meant to be remembered.
+
+                And some are meant to stay locked
+
+                inside the little universe
+
+                that belongs only to us.
+
+            </p>
+
+
+            <div class="vault-intro">
+
+                <span>
+                    ✦
+                </span>
+
+                Welcome to the memories
+
+                we chose to keep forever.
+
+                <span>
+                    ✦
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!--========================================
+VAULT CONTENT
+=========================================-->
+
+<section class="vault-section">
+
+    <div class="container">
+
+
+        <!-- SECTION HEADING -->
+
+        <div class="vault-heading">
+
+            <span class="hero-label">
+
+                PRIVATE MEMORIES
+
+            </span>
+
+
+            <h2 class="section-title">
+
+                Behind These Locks
+
+            </h2>
+
+
+            <p>
+
+                Every box holds something different.
+
+                Click a memory to unlock its story.
+
+            </p>
+
+        </div>
+
+
+
+        <!--====================================
+        MEMORY GRID
+        =====================================-->
+
+        <div
+            class="vault-grid"
+            id="vaultGrid">
+
+            <!--
+
+                vault.js will create
+
+                all memory boxes here.
+
+            -->
+
+        </div>
+
+
+
+        <!--====================================
+        EMPTY STATE
+        =====================================-->
+
+        <div
+            class="vault-empty"
+            id="vaultEmpty">
+
+            No memories have been placed
+
+            inside the vault yet.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!--========================================
+MEMORY MODAL
+=========================================-->
+
+<div
+    class="vault-modal"
+    id="vaultModal"
+    aria-hidden="true">
+
+
+    <!-- OVERLAY -->
+
+    <div
+        class="vault-modal-overlay"
+        id="vaultModalOverlay">
+    </div>
+
+
+
+    <!-- MODAL CONTENT -->
+
+    <div
+        class="glass vault-modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="vaultMemoryTitle">
+
+
+        <!-- CLOSE -->
+
+        <button
+            type="button"
+            class="vault-close"
+            id="vaultClose"
+            aria-label="Close memory">
+
+            ×
+
+        </button>
+
+
+
+        <!--================================
+        UNLOCK ANIMATION
+        =================================-->
+
+        <div
+            class="unlock-animation"
+            id="unlockAnimation">
+
+            <div class="unlock-icon">
+
+                🔓
+
+            </div>
+
+
+            <p>
+
+                Memory Unlocked
+
+            </p>
+
+        </div>
+
+
+
+        <!--================================
+        MEMORY CONTENT
+        =================================-->
+
+        <div
+            class="vault-memory-content"
+            id="vaultMemoryContent">
+
+
+            <!-- CATEGORY -->
+
+            <span
+                class="vault-memory-category"
+                id="vaultMemoryCategory">
+
+                SECRET
+
+            </span>
+
+
+
+            <!-- TITLE -->
+
+            <h2
+                id="vaultMemoryTitle">
+
+                Memory
+
+            </h2>
+
+
+
+            <!-- LINE -->
+
+            <div
+                class="vault-memory-line">
+            </div>
+
+
+
+            <!--================================
+            IMAGE
+            =================================-->
+
+            <div
+                class="vault-memory-image-wrap"
+                id="vaultMemoryImageWrap">
+
+                <img
+                    id="vaultMemoryImage"
+                    src=""
+                    alt="Memory"
+                    loading="lazy"
+                    decoding="async">
+
+            </div>
+
+
+
+            <!--================================
+            TEXT
+            =================================-->
+
+            <p
+                class="vault-memory-text"
+                id="vaultMemoryText">
+
+            </p>
+
+
+
+            <!--================================
+            FOOTER
+            =================================-->
+
+            <div
+                class="vault-memory-footer">
+
+                <span>
+
+                    ❤️ Kept Forever
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!--========================================
+FINAL MESSAGE
+=========================================-->
+
+<section class="vault-ending">
+
+    <div class="container">
+
+        <div class="glass vault-ending-card">
+
+
+            <span class="hero-label">
+
+                YOU MADE IT HERE
+
+            </span>
+
+
+            <div class="ending-symbol">
+
+                ♡
+
+            </div>
+
+
+            <h2>
+
+                You've Reached
+
+                The End Of Our Memories.
+
+            </h2>
+
+
+            <div class="divider"></div>
+
+
+            <p>
+
+                But this isn't really the end.
+
+            </p>
+
+
+            <h3>
+
+                It's only the place
+
+                where our memories rest.
+
+            </h3>
+
+
+            <p class="ending-final">
+
+                Because our story
+
+                is still being written.
+
+            </p>
+
+
+            <div class="ending-heart">
+
+                ❤
+
+            </div>
+
+
+            <span class="ending-signature">
+
+                ATIRA'S JOURNEY
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!--========================================
+FINAL NAVIGATION
+=========================================-->
+
+<section class="vault-final-navigation">
+
+    <div class="container">
+
+        <div class="glass vault-final-navigation-card">
+
+
+            <span class="hero-label">
+
+                THE JOURNEY CONTINUES
+
+            </span>
+
+
+            <h2>
+
+                Want To Walk
+
+                Through It Again?
+
+            </h2>
+
+
+            <div class="divider"></div>
+
+
+            <p>
+
+                The Vault may be the final destination,
+
+                but memories can always be revisited.
+
+            </p>
+
+
+            <div class="vault-final-buttons">
+
+
+                <a
+                    href="dashboard.html"
+                    class="btn">
+
+                    BACK TO DASHBOARD
+
+                </a>
+
+
+                <a
+                    href="index.html"
+                    class="btn btn-secondary">
+
+                    RETURN HOME
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+</main>
+
+
+
+<!--========================================
+GLOBAL FOOTER
+=========================================-->
+
+<footer class="site-footer">
+
+    <div class="site-footer-inner">
+
+
+        <h3>
+
+            ATIRA'S JOURNEY
+
+        </h3>
+
+
+        <p>
+
+            Every memory has a place.
+
+            Every story has a home.
+
+        </p>
+
+
+
+        <!-- FOOTER NAVIGATION -->
+
+        <div class="site-footer-links">
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+
+            <a href="gallery.html">
+                Gallery
+            </a>
+
+
+            <a href="videos.html">
+                Videos
+            </a>
+
+            <a href="timeline.html">
+                Memories
+            </a>
+
+            <a href="letters.html">
+                Letters
+            </a>
+
+
+            <a href="music.html">
+                Music
+            </a>
+
+
+            <a href="about.html">
+                About
+            </a>
+
+
+            <a href="vault.html">
+                🔐 Vault
+            </a>
+
+        </div>
+
+
+
+        <p>
+
+            Made with
+
+            <span class="footer-heart">
+
+                ❤
+
+            </span>
+
+            by
+
+            <strong>
+
+                Anubhab
+
+            </strong>
+
+        </p>
+
+
+
+        <p class="site-footer-copy">
+
+            ©
+
+            <span data-current-year></span>
+
+            ATIRA'S JOURNEY
+
+            • All Memories Reserved
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!--========================================
+SCRIPTS
+=========================================-->
+
+<script src="js/app.js"></script>
+
+<script src="data/vaultData.js"></script>
+
+<script src="js/vault.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,447 @@
+/*==================================================
+ATIRA'S JOURNEY
+VIDEOS PAGE
+==================================================*/
+
+/* HERO */
+
+.gallery-hero{
+
+    padding:90px 0 50px;
+
+    text-align:center;
+
+}
+
+.gallery-hero h1{
+
+    font-family:"Cinzel",serif;
+
+    font-size:clamp(2.8rem,5vw,4.5rem);
+
+    color:#fff;
+
+    margin:20px 0;
+
+}
+
+.gallery-hero p{
+
+    max-width:760px;
+
+    margin:auto;
+
+    line-height:2;
+
+    color:#d4d4d4;
+
+}
+
+
+/* FILTER */
+
+.gallery-filter{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-top:35px;
+
+}
+
+.filter-btn{
+
+    padding:13px 24px;
+
+    border:none;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+    font-weight:600;
+
+}
+
+.filter-btn:hover,
+
+.filter-btn.active{
+
+    background:linear-gradient(
+        135deg,
+        #d90429,
+        #ff8fab
+    );
+
+    box-shadow:
+        0 12px 25px rgba(217,4,41,.28);
+
+}
+
+
+/* SEARCH */
+
+.gallery-search{
+
+    max-width:520px;
+
+    margin:35px auto;
+
+}
+
+.gallery-search input{
+
+    width:100%;
+
+    padding:18px 22px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    outline:none;
+
+    font-size:1rem;
+
+}
+
+
+/* GRID */
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fill,minmax(320px,1fr));
+
+    gap:30px;
+
+    margin:70px 0;
+
+}
+
+
+/* CARD */
+
+.video-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:24px;
+
+    cursor:pointer;
+
+    background:#111;
+
+    transition:.4s;
+
+}
+
+.video-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+/* THUMBNAIL */
+
+.video-card img{
+
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+
+    transition:.5s;
+
+}
+
+.video-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+
+/* PLAY ICON */
+
+.video-play{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:3rem;
+
+    color:white;
+
+    background:rgba(0,0,0,.15);
+
+}
+
+
+/* OVERLAY */
+
+.video-overlay{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    padding:20px;
+
+    background:
+
+    linear-gradient(
+
+        to top,
+
+        rgba(0,0,0,.92),
+
+        transparent
+
+    );
+
+}
+
+.video-overlay h3{
+
+    color:white;
+
+    margin-bottom:6px;
+
+}
+
+.video-overlay p{
+
+    color:#ddd;
+
+    font-size:.9rem;
+
+}
+
+
+/* MODAL */
+
+.gallery-lightbox{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.95);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s;
+
+    z-index:9999;
+
+}
+
+.gallery-lightbox.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.lightbox-content{
+
+    max-width:90vw;
+
+    max-height:85vh;
+
+}
+
+.lightbox-content video{
+
+    width:100%;
+
+    max-height:85vh;
+
+    border-radius:20px;
+
+}
+
+
+/* CLOSE */
+
+.lightbox-close{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:2rem;
+
+    cursor:pointer;
+
+}
+
+.lightbox-close:hover{
+
+    background:#d90429;
+
+}
+
+
+/* ARROWS */
+
+.lightbox-prev,
+
+.lightbox-next{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:2rem;
+
+    cursor:pointer;
+
+}
+
+.lightbox-prev{
+
+    left:25px;
+
+}
+
+.lightbox-next{
+
+    right:25px;
+
+}
+
+.lightbox-prev:hover,
+
+.lightbox-next:hover{
+
+    background:#d90429;
+
+}
+
+
+/* COUNTER */
+
+.lightbox-counter{
+
+    position:absolute;
+
+    bottom:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:white;
+
+    background:rgba(255,255,255,.08);
+
+    padding:10px 22px;
+
+    border-radius:999px;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.gallery-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.video-card img{
+
+height:230px;
+
+}
+
+.lightbox-prev{
+
+left:10px;
+
+}
+
+.lightbox-next{
+
+right:10px;
+
+}
+
+}

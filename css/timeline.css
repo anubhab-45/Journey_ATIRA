@@ -1,0 +1,896 @@
+/*==================================================
+    ATIRA'S JOURNEY
+    timeline.css
+==================================================*/
+
+
+/*==================================================
+    HERO
+==================================================*/
+
+.timeline-hero{
+
+    padding:90px 0 45px;
+
+    text-align:center;
+
+}
+
+
+.timeline-hero-card{
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:60px 40px;
+
+    border-radius:28px;
+
+}
+
+
+.timeline-hero h1{
+
+    margin:20px 0;
+
+    font-family:"Cinzel",serif;
+
+    font-size:clamp(2.3rem,5vw,4rem);
+
+    line-height:1.2;
+
+}
+
+
+.timeline-hero h1 .crimson{
+
+    color:#ff8fab;
+
+}
+
+
+.timeline-hero p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    color:#c9c2cc;
+
+    line-height:1.9;
+
+}
+
+
+
+/*==================================================
+    HEADING
+==================================================*/
+
+.timeline-heading{
+
+    text-align:center;
+
+    margin-bottom:55px;
+
+}
+
+
+.timeline-heading .section-title{
+
+    margin-bottom:12px;
+
+}
+
+
+.timeline-heading p{
+
+    max-width:650px;
+
+    margin:auto;
+
+}
+
+
+
+/*==================================================
+    GRID
+==================================================*/
+
+.timeline-section{
+
+    padding:40px 0 100px;
+
+}
+
+
+.timeline-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(
+
+            auto-fill,
+
+            minmax(285px,1fr)
+
+        );
+
+    gap:28px;
+
+}
+
+
+
+/*==================================================
+    MEMORY CARD
+==================================================*/
+
+.timeline-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:380px;
+
+    border-radius:26px;
+
+    cursor:pointer;
+
+    background:
+
+        rgba(255,255,255,.035);
+
+    border:
+
+        1px solid rgba(255,255,255,.07);
+
+    box-shadow:
+
+        0 18px 50px rgba(0,0,0,.22);
+
+    transition:
+
+        transform .4s ease,
+
+        box-shadow .4s ease,
+
+        border-color .4s ease;
+
+}
+
+
+.timeline-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:
+
+        rgba(255,143,171,.25);
+
+    box-shadow:
+
+        0 28px 65px rgba(0,0,0,.35),
+
+        0 0 35px rgba(217,4,41,.10);
+
+}
+
+
+
+/*==================================================
+    CARD MEDIA
+==================================================*/
+
+.timeline-card-media{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    background:#08060a;
+
+}
+
+
+.timeline-card-media img,
+
+.timeline-card-media video{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:
+
+        transform .7s ease;
+
+}
+
+
+.timeline-card:hover
+.timeline-card-media img,
+
+.timeline-card:hover
+.timeline-card-media video{
+
+    transform:scale(1.07);
+
+}
+
+
+
+/*==================================================
+    CARD OVERLAY
+==================================================*/
+
+.timeline-card-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:2;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    padding:28px 24px;
+
+    background:
+
+        linear-gradient(
+
+            to top,
+
+            rgba(0,0,0,.93),
+
+            rgba(0,0,0,.55) 35%,
+
+            transparent 75%
+
+        );
+
+}
+
+
+.timeline-card-category{
+
+    align-self:flex-start;
+
+    margin-bottom:10px;
+
+    padding:6px 11px;
+
+    border-radius:999px;
+
+    color:#ffadc0;
+
+    background:
+
+        rgba(217,4,41,.12);
+
+    border:
+
+        1px solid rgba(255,143,171,.15);
+
+    font-size:.62rem;
+
+    font-weight:600;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+}
+
+
+.timeline-card-title{
+
+    margin-bottom:8px;
+
+    color:#fff;
+
+    font-family:"Cinzel",serif;
+
+    font-size:1.25rem;
+
+    line-height:1.3;
+
+}
+
+
+.timeline-card-description{
+
+    color:#d4ced5;
+
+    font-size:.83rem;
+
+    line-height:1.65;
+
+}
+
+
+.timeline-card-date{
+
+    margin-top:12px;
+
+    color:#a79fa9;
+
+    font-size:.7rem;
+
+}
+
+
+
+/*==================================================
+    VIDEO BADGE
+==================================================*/
+
+.timeline-video-badge{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    z-index:4;
+
+    width:50px;
+
+    height:50px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    background:
+
+        rgba(0,0,0,.48);
+
+    border:
+
+        1px solid rgba(255,255,255,.14);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+}
+
+
+
+/*==================================================
+    EMPTY STATE
+==================================================*/
+
+.timeline-empty{
+
+    margin-top:20px;
+
+}
+
+
+.timeline-empty[hidden]{
+
+    display:none;
+
+}
+
+
+.timeline-empty-card{
+
+    max-width:600px;
+
+    margin:auto;
+
+    padding:60px 30px;
+
+    text-align:center;
+
+    border-radius:25px;
+
+}
+
+
+.timeline-empty .empty-icon{
+
+    width:75px;
+
+    height:75px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:0 auto 20px;
+
+    border-radius:50%;
+
+    color:#ff8fab;
+
+    background:
+
+        rgba(217,4,41,.10);
+
+    border:
+
+        1px solid rgba(255,143,171,.15);
+
+    font-size:2rem;
+
+}
+
+
+.timeline-empty h3{
+
+    margin-bottom:10px;
+
+    font-family:"Cinzel",serif;
+
+}
+
+
+.timeline-empty p{
+
+    color:#a8a0aa;
+
+}
+
+
+
+/*==================================================
+    MODAL
+==================================================*/
+
+.timeline-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px 20px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    background:
+
+        rgba(4,2,6,.94);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    transition:
+
+        opacity .35s ease,
+
+        visibility .35s ease;
+
+}
+
+
+.timeline-modal.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+}
+
+
+.timeline-modal-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+}
+
+
+
+/*==================================================
+    MODAL CONTENT
+==================================================*/
+
+.timeline-modal-content{
+
+    position:relative;
+
+    z-index:2;
+
+    width:min(900px,94vw);
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    border-radius:28px;
+
+    animation:
+
+        timelineModalIn .4s ease;
+
+}
+
+
+.timeline-modal-media{
+
+    width:100%;
+
+    max-height:65vh;
+
+    overflow:hidden;
+
+    background:#050407;
+
+}
+
+
+.timeline-modal-media img,
+
+.timeline-modal-media video{
+
+    display:block;
+
+    width:100%;
+
+    max-height:65vh;
+
+    object-fit:contain;
+
+    background:#050407;
+
+}
+
+
+
+/*==================================================
+    MODAL INFO
+==================================================*/
+
+.timeline-modal-info{
+
+    padding:30px 35px 35px;
+
+}
+
+
+.timeline-modal-category{
+
+    display:inline-block;
+
+    margin-bottom:12px;
+
+    color:#ff9fb7;
+
+    font-size:.68rem;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+.timeline-modal-info h2{
+
+    margin-bottom:14px;
+
+    font-family:"Cinzel",serif;
+
+    font-size:1.8rem;
+
+}
+
+
+.timeline-modal-info p{
+
+    color:#c8c1ca;
+
+    line-height:1.8;
+
+}
+
+
+.timeline-modal-footer{
+
+    margin-top:25px;
+
+    padding-top:18px;
+
+    border-top:
+
+        1px solid rgba(255,255,255,.06);
+
+    color:#928b95;
+
+    font-size:.75rem;
+
+}
+
+
+
+/*==================================================
+    CLOSE BUTTON
+==================================================*/
+
+.timeline-close{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    z-index:10;
+
+    width:48px;
+
+    height:48px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:
+
+        1px solid rgba(255,255,255,.12);
+
+    border-radius:50%;
+
+    color:#fff;
+
+    background:
+
+        rgba(0,0,0,.45);
+
+    font-size:1.8rem;
+
+    line-height:1;
+
+    transition:
+
+        transform .3s ease,
+
+        background .3s ease;
+
+}
+
+
+.timeline-close:hover{
+
+    transform:rotate(90deg);
+
+    background:
+
+        rgba(217,4,41,.85);
+
+}
+
+
+
+/*==================================================
+    MODAL ANIMATION
+==================================================*/
+
+@keyframes timelineModalIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+            translateY(20px)
+
+            scale(.95);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+            translateY(0)
+
+            scale(1);
+
+    }
+
+}
+
+
+
+/*==================================================
+    MOBILE
+==================================================*/
+
+@media(max-width:700px){
+
+    .timeline-hero{
+
+        padding:65px 0 30px;
+
+    }
+
+
+    .timeline-hero-card{
+
+        padding:42px 22px;
+
+    }
+
+
+    .timeline-hero h1{
+
+        font-size:2.2rem;
+
+    }
+
+
+    .timeline-hero p{
+
+        font-size:.88rem;
+
+    }
+
+
+    .timeline-section{
+
+        padding-top:30px;
+
+        padding-bottom:70px;
+
+    }
+
+
+    .timeline-grid{
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+
+    .timeline-card{
+
+        min-height:350px;
+
+    }
+
+
+    .timeline-modal{
+
+        padding:55px 10px 15px;
+
+    }
+
+
+    .timeline-modal-content{
+
+        width:96vw;
+
+        max-height:88vh;
+
+        border-radius:20px;
+
+    }
+
+
+    .timeline-modal-media{
+
+        max-height:55vh;
+
+    }
+
+
+    .timeline-modal-media img,
+
+    .timeline-modal-media video{
+
+        max-height:55vh;
+
+    }
+
+
+    .timeline-modal-info{
+
+        padding:25px 20px 28px;
+
+    }
+
+
+    .timeline-modal-info h2{
+
+        font-size:1.4rem;
+
+    }
+
+
+    .timeline-close{
+
+        top:10px;
+
+        right:10px;
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+}
+
+
+
+/*==================================================
+    VERY SMALL DEVICES
+==================================================*/
+
+@media(max-width:400px){
+
+    .timeline-card{
+
+        min-height:310px;
+
+    }
+
+
+    .timeline-card-title{
+
+        font-size:1.1rem;
+
+    }
+
+
+    .timeline-card-description{
+
+        font-size:.78rem;
+
+    }
+
+}

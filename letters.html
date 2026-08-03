@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Letters • ATIRA'S JOURNEY</title>
+
+    <meta name="description"
+          content="Letters, words and little pieces of our story.">
+
+    <meta name="theme-color"
+          content="#0d0612">
+
+
+    <!--========================================
+    GOOGLE FONTS
+    =========================================-->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!--========================================
+    GLOBAL CSS
+    =========================================-->
+
+    <script src="js/base-path.js"></script>
+
+    <link rel="stylesheet"
+          href="css/global.css">
+
+
+    <!--========================================
+    MAIN CSS
+    =========================================-->
+
+    <link rel="stylesheet"
+          href="css/style_1.css">
+
+    <link rel="stylesheet"
+          href="css/style_2.css">
+
+    <link rel="stylesheet"
+          href="css/style_3.css">
+
+
+    <!--========================================
+    LETTERS CSS
+    =========================================-->
+
+    <link rel="stylesheet"
+          href="css/letters.css">
+
+</head>
+
+
+<body>
+
+
+<!--========================================
+GLOBAL HEADER
+=========================================-->
+
+<header
+    class="site-header"
+    id="siteHeader">
+
+    <div class="site-header-container">
+
+
+        <!-- BRAND -->
+
+        <a
+            href="index.html"
+            class="site-brand">
+
+            <span class="site-brand-symbol">
+                ❤
+            </span>
+
+            <span class="site-brand-text">
+
+                <span class="site-brand-title">
+                    ATIRA'S JOURNEY
+                </span>
+
+                <span class="site-brand-subtitle">
+                    OUR LITTLE UNIVERSE
+                </span>
+
+            </span>
+
+        </a>
+
+
+        <!-- MOBILE MENU -->
+
+        <button
+            type="button"
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+
+            ☰
+
+        </button>
+
+
+        <!-- NAVIGATION -->
+
+        <nav
+            class="site-nav"
+            id="siteNav"
+            aria-label="Main navigation">
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+
+            <a href="gallery.html">
+                Gallery
+            </a>
+
+
+            <a href="videos.html">
+                Videos
+            </a>
+
+            <a href="timeline.html">
+                Memories
+            </a>
+
+            <a
+                href="letters.html"
+                class="active">
+
+                Letters
+
+            </a>
+
+
+            <a href="music.html">
+                Music
+            </a>
+
+
+            <a href="about.html">
+                About
+            </a>
+
+
+            <a
+                href="vault.html"
+                class="vault-link">
+
+                🔐 Vault
+
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!--========================================
+MAIN
+=========================================-->
+
+<main class="page-with-header">
+
+
+<!--========================================
+LETTERS HERO
+=========================================-->
+
+<section class="letters-hero">
+
+    <div class="container">
+
+        <div class="glass letters-hero-card">
+
+
+            <span class="hero-label">
+
+                WORDS WE KEPT
+
+            </span>
+
+
+            <div class="letters-symbol">
+
+                💌
+
+            </div>
+
+
+            <h1>
+
+                Letters
+
+                <span class="crimson">
+
+                    From The Heart
+
+                </span>
+
+            </h1>
+
+
+            <div class="divider"></div>
+
+
+            <p>
+
+                Some things are easier to write
+
+                than to say.
+
+                Some words deserve to be kept.
+
+                And some letters become memories
+
+                all by themselves.
+
+            </p>
+
+
+            <p class="letters-note">
+
+                A little collection of words
+
+                that belong to our story.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!--========================================
+LETTER CONTROLS
+=========================================-->
+
+<section class="letters-controls-section">
+
+    <div class="container">
+
+
+        <div class="glass letters-controls">
+
+
+            <!-- SEARCH -->
+
+            <div class="letters-search">
+
+                <label for="letterSearch">
+
+                    Search letters
+
+                </label>
+
+
+                <input
+                    type="search"
+                    id="letterSearch"
+                    placeholder="Search by title or message..."
+                    autocomplete="off">
+
+            </div>
+
+
+
+            <!-- SORT -->
+
+            <div class="letters-sort">
+
+                <label for="letterSort">
+
+                    Sort
+
+                </label>
+
+
+                <select
+                    id="letterSort">
+
+                    <option value="default">
+                        Default Order
+                    </option>
+
+                    <option value="newest">
+                        Newest First
+                    </option>
+
+                    <option value="oldest">
+                        Oldest First
+                    </option>
+
+                    <option value="az">
+                        A → Z
+                    </option>
+
+                    <option value="za">
+                        Z → A
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- FAVORITES -->
+
+            <button
+                type="button"
+                class="letters-favorite-filter"
+                id="favoriteFilter"
+                aria-pressed="false">
+
+                ♡
+
+                Favorites Only
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!--========================================
+LETTERS GRID
+=========================================-->
+
+<section class="letters-section">
+
+    <div class="container">
+
+
+        <div class="letters-heading">
+
+            <span class="hero-label">
+
+                OUR WORDS
+
+            </span>
+
+
+            <h2 class="section-title">
+
+                Little Letters,
+
+                <span class="crimson">
+                    Lasting Feelings
+                </span>
+
+            </h2>
+
+
+            <p class="text-muted">
+
+                Open any letter to read
+
+                the words hidden inside.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- LETTER GRID -->
+
+        <div
+            class="letters-grid"
+            id="lettersGrid">
+
+            <!--
+                letters.js will generate
+                letter cards here.
+            -->
+
+        </div>
+
+
+
+        <!-- EMPTY -->
+
+        <div
+            class="letters-empty"
+            id="lettersEmpty">
+
+            <div class="glass card text-center">
+
+
+                <span class="hero-label">
+
+                    NOTHING FOUND
+
+                </span>
+
+
+                <h3>
+
+                    No letter matched your search.
+
+                </h3>
+
+
+                <p class="text-muted">
+
+                    Try another search
+
+                    or change the filter.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!--========================================
+LETTER MODAL
+=========================================-->
+
+<div
+    class="letter-modal"
+    id="letterModal"
+    aria-hidden="true">
+
+
+    <!-- OVERLAY -->
+
+    <div
+        class="letter-modal-overlay"
+        id="letterModalOverlay">
+    </div>
+
+
+
+    <!-- MODAL -->
+
+    <div
+        class="glass letter-modal-content">
+
+
+        <!-- CLOSE -->
+
+        <button
+            type="button"
+            class="letter-close"
+            id="letterClose"
+            aria-label="Close letter">
+
+            ×
+
+        </button>
+
+
+
+        <!-- CATEGORY -->
+
+        <span
+            class="letter-modal-category"
+            id="letterModalCategory">
+
+            LETTER
+
+        </span>
+
+
+
+        <!-- TITLE -->
+
+        <h2
+            id="letterModalTitle">
+
+            A Letter
+
+        </h2>
+
+
+
+        <div class="divider"></div>
+
+
+
+        <!-- META -->
+
+        <div
+            class="letter-modal-meta"
+            id="letterModalMeta">
+
+        </div>
+
+
+
+        <!-- BODY -->
+
+        <div
+            class="letter-modal-body"
+            id="letterModalBody">
+
+        </div>
+
+
+
+        <!-- AUDIO -->
+
+        <div
+            class="letter-audio-wrap"
+            id="letterAudioWrap">
+
+
+            <div class="letter-audio-label">
+
+                🎵 A song for this memory
+
+            </div>
+
+
+            <audio
+                id="letterAudio"
+                controls
+                preload="metadata">
+
+            </audio>
+
+        </div>
+
+
+
+        <!-- FAVORITE -->
+
+        <button
+            type="button"
+            class="letter-modal-favorite"
+            id="letterModalFavorite">
+
+            ♡
+
+            Keep this letter
+
+        </button>
+
+
+
+        <!-- NAVIGATION -->
+
+        <div class="letter-modal-navigation">
+
+
+            <button
+                type="button"
+                id="letterPrev"
+                aria-label="Previous letter">
+
+                ← Previous
+
+            </button>
+
+
+            <span
+                id="letterCounter">
+
+                1 / 1
+
+            </span>
+
+
+            <button
+                type="button"
+                id="letterNext"
+                aria-label="Next letter">
+
+                Next →
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!--========================================
+ENDING
+=========================================-->
+
+<section class="letters-ending">
+
+    <div class="container">
+
+        <div class="glass letters-ending-card">
+
+
+            <span class="hero-label">
+
+                ONE LAST THOUGHT
+
+            </span>
+
+
+            <div class="letters-ending-symbol">
+
+                ✉
+
+            </div>
+
+
+            <h2>
+
+                Some Words
+
+                Deserve To Stay.
+
+            </h2>
+
+
+            <div class="divider"></div>
+
+
+            <p>
+
+                Years from now,
+
+                we may forget the exact words.
+
+            </p>
+
+
+            <p>
+
+                But hopefully,
+
+                we'll remember how they made us feel.
+
+            </p>
+
+
+            <div class="ending-heart">
+
+                ❤
+
+            </div>
+
+
+            <span class="ending-signature">
+
+                ATIRA'S JOURNEY
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!--========================================
+GLOBAL FOOTER
+=========================================-->
+
+<footer class="site-footer">
+
+    <div class="site-footer-inner">
+
+
+        <h3>
+            ATIRA'S JOURNEY
+        </h3>
+
+
+        <p>
+
+            Every memory has a place.
+
+            Every story has a home.
+
+        </p>
+
+
+        <div class="site-footer-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="gallery.html">
+                Gallery
+            </a>
+
+            <a href="videos.html">
+                Videos
+            </a>
+
+            <a href="letters.html">
+                Letters
+            </a>
+
+            <a href="music.html">
+                Music
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="vault.html">
+                🔐 Vault
+            </a>
+
+        </div>
+
+
+        <p>
+
+            Made with
+
+            <span class="footer-heart">
+                ❤
+            </span>
+
+            by
+
+            <strong>
+                Anubhab
+            </strong>
+
+        </p>
+
+
+        <p class="site-footer-copy">
+
+            © <span data-current-year></span>
+
+            ATIRA'S JOURNEY
+
+            • All Memories Reserved
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!--========================================
+SCRIPTS
+=========================================-->
+
+<script src="js/app.js"></script>
+
+<script src="data/lettersData.js"></script>
+
+<script src="js/letters.js"></script>
+
+
+</body>
+
+</html>

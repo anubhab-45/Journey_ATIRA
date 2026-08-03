@@ -1,0 +1,761 @@
+/*==================================================
+    ATIRA'S JOURNEY
+    DASHBOARD.CSS
+    Dashboard layout + destination cards
+==================================================*/
+
+
+/*==================================================
+    DASHBOARD HERO
+==================================================*/
+
+.dashboard-hero{
+
+    padding:70px 0 45px;
+
+}
+
+
+.dashboard-hero-card{
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:50px 40px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+}
+
+
+.dashboard-hero-card h1{
+
+    margin:18px 0;
+
+    font-family:Cinzel,serif;
+
+    font-size:clamp(2.5rem,6vw,4.5rem);
+
+    line-height:1;
+
+    letter-spacing:2px;
+
+}
+
+
+.dashboard-hero-card h1 span{
+
+    color:var(--rose);
+
+}
+
+
+.dashboard-hero-card p{
+
+    max-width:650px;
+
+    margin:22px auto 0;
+
+    color:var(--muted);
+
+    line-height:1.9;
+
+    font-size:1rem;
+
+}
+
+
+/*==================================================
+    DASHBOARD SECTION
+==================================================*/
+
+.dashboard-section{
+
+    padding:45px 0 70px;
+
+}
+
+
+.dashboard-heading{
+
+    text-align:center;
+
+    max-width:700px;
+
+    margin:0 auto 40px;
+
+}
+
+
+.dashboard-heading p{
+
+    margin-top:12px;
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+}
+
+
+/*==================================================
+    DASHBOARD GRID
+==================================================*/
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+        repeat(3,minmax(0,1fr));
+
+    gap:22px;
+
+}
+
+
+/*==================================================
+    DASHBOARD CARD
+==================================================*/
+
+.dashboard-card{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:280px;
+
+    padding:30px;
+
+    border-radius:26px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            rgba(255,255,255,.065),
+
+            rgba(255,255,255,.025)
+
+        );
+
+    box-shadow:
+
+        0 18px 45px
+
+        rgba(0,0,0,.16);
+
+    transition:
+
+        transform .35s ease,
+
+        border-color .35s ease,
+
+        box-shadow .35s ease,
+
+        background .35s ease;
+
+}
+
+
+.dashboard-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    top:-90px;
+
+    right:-90px;
+
+    border-radius:50%;
+
+    background:
+
+        rgba(255,143,171,.09);
+
+    filter:blur(30px);
+
+    pointer-events:none;
+
+}
+
+
+.dashboard-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:26px;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            rgba(255,255,255,.08),
+
+            transparent 35%
+
+        );
+
+    opacity:.35;
+
+    pointer-events:none;
+
+}
+
+
+.dashboard-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:
+
+        rgba(255,143,171,.25);
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            rgba(255,255,255,.09),
+
+            rgba(255,255,255,.035)
+
+        );
+
+    box-shadow:
+
+        0 25px 55px
+
+        rgba(0,0,0,.25),
+
+        0 0 35px
+
+        rgba(217,4,41,.12);
+
+}
+
+
+/*==================================================
+    CARD ICON
+==================================================*/
+
+.dashboard-card-icon{
+
+    position:relative;
+
+    z-index:2;
+
+    width:58px;
+
+    height:58px;
+
+    display:grid;
+
+    place-items:center;
+
+    margin-bottom:24px;
+
+    border-radius:18px;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            rgba(217,4,41,.25),
+
+            rgba(255,143,171,.12)
+
+        );
+
+    border:
+
+        1px solid
+
+        rgba(255,255,255,.10);
+
+    font-size:1.65rem;
+
+    box-shadow:
+
+        0 10px 25px
+
+        rgba(0,0,0,.15);
+
+    transition:
+
+        transform .35s ease,
+
+        box-shadow .35s ease;
+
+}
+
+
+.dashboard-card:hover .dashboard-card-icon{
+
+    transform:
+
+        translateY(-3px)
+
+        rotate(-3deg);
+
+    box-shadow:
+
+        0 12px 30px
+
+        rgba(217,4,41,.18);
+
+}
+
+
+/*==================================================
+    CARD LABEL
+==================================================*/
+
+.dashboard-card .mini-label{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-bottom:8px;
+
+    color:var(--rose);
+
+    letter-spacing:2px;
+
+    font-size:.7rem;
+
+    font-weight:600;
+
+}
+
+
+/*==================================================
+    CARD TITLE
+==================================================*/
+
+.dashboard-card h3{
+
+    position:relative;
+
+    z-index:2;
+
+    margin:0 0 12px;
+
+    font-family:Cinzel,serif;
+
+    font-size:1.45rem;
+
+    letter-spacing:.5px;
+
+}
+
+
+/*==================================================
+    CARD TEXT
+==================================================*/
+
+.dashboard-card p{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:330px;
+
+    margin:0;
+
+    color:var(--muted);
+
+    font-size:.9rem;
+
+    line-height:1.8;
+
+}
+
+
+/*==================================================
+    CARD ARROW
+==================================================*/
+
+.dashboard-card-arrow{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:auto;
+
+    padding-top:22px;
+
+    color:var(--rose);
+
+    font-size:1.4rem;
+
+    transition:
+
+        transform .3s ease;
+
+}
+
+
+.dashboard-card:hover .dashboard-card-arrow{
+
+    transform:translateX(7px);
+
+}
+
+
+/*==================================================
+    VAULT CARD
+==================================================*/
+
+.dashboard-vault-card{
+
+    border:
+
+        1px solid
+
+        rgba(255,143,171,.22);
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            rgba(217,4,41,.14),
+
+            rgba(255,143,171,.045)
+
+        );
+
+}
+
+
+.dashboard-vault-card::before{
+
+    width:250px;
+
+    height:250px;
+
+    top:-120px;
+
+    right:-110px;
+
+    background:
+
+        rgba(217,4,41,.17);
+
+}
+
+
+.dashboard-vault-card:hover{
+
+    border-color:
+
+        rgba(255,143,171,.42);
+
+    box-shadow:
+
+        0 28px 65px
+
+        rgba(0,0,0,.28),
+
+        0 0 50px
+
+        rgba(217,4,41,.2);
+
+}
+
+
+/*==================================================
+    DASHBOARD QUOTE
+==================================================*/
+
+.dashboard-quote-section{
+
+    padding:20px 0 70px;
+
+}
+
+
+.dashboard-quote-card{
+
+    max-width:850px;
+
+    margin:auto;
+
+    padding:42px 35px;
+
+    text-align:center;
+
+    border-radius:28px;
+
+}
+
+
+.dashboard-quote-card p{
+
+    max-width:650px;
+
+    margin:0 auto;
+
+    color:var(--muted);
+
+    font-size:1.12rem;
+
+    line-height:1.9;
+
+}
+
+
+.dashboard-quote-card .quote-symbol{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:var(--rose);
+
+    font-family:Georgia,serif;
+
+    font-size:4rem;
+
+    line-height:.6;
+
+}
+
+
+.dashboard-quote-card .quote-end{
+
+    display:block;
+
+    margin-top:12px;
+
+    color:var(--rose);
+
+    font-family:Georgia,serif;
+
+    font-size:3rem;
+
+    line-height:.5;
+
+}
+
+
+/*==================================================
+    VAULT TEASER
+==================================================*/
+
+.dashboard-vault-teaser{
+
+    padding:20px 0 80px;
+
+}
+
+
+.dashboard-vault-teaser-card{
+
+    max-width:850px;
+
+    margin:auto;
+
+    padding:55px 35px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    border:
+
+        1px solid
+
+        rgba(255,143,171,.18);
+
+}
+
+
+.dashboard-vault-symbol{
+
+    margin:18px 0;
+
+    font-size:3rem;
+
+    filter:
+
+        drop-shadow(
+
+            0 10px 20px
+
+            rgba(217,4,41,.2)
+
+        );
+
+}
+
+
+.dashboard-vault-teaser-card h2{
+
+    margin:10px auto 18px;
+
+    max-width:600px;
+
+    font-family:Cinzel,serif;
+
+    font-size:clamp(1.8rem,4vw,2.8rem);
+
+    line-height:1.2;
+
+}
+
+
+.dashboard-vault-teaser-card p{
+
+    max-width:600px;
+
+    margin:0 auto 28px;
+
+    color:var(--muted);
+
+    line-height:1.9;
+
+}
+
+
+/*==================================================
+    RESPONSIVE
+==================================================*/
+
+@media(max-width:1000px){
+
+    .dashboard-grid{
+
+        grid-template-columns:
+
+            repeat(2,minmax(0,1fr));
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    .dashboard-hero{
+
+        padding:45px 0 30px;
+
+    }
+
+
+    .dashboard-hero-card{
+
+        padding:38px 24px;
+
+        border-radius:24px;
+
+    }
+
+
+    .dashboard-section{
+
+        padding:30px 0 55px;
+
+    }
+
+
+    .dashboard-grid{
+
+        grid-template-columns:1fr;
+
+        gap:16px;
+
+    }
+
+
+    .dashboard-card{
+
+        min-height:250px;
+
+        padding:26px;
+
+    }
+
+
+    .dashboard-quote-card{
+
+        padding:35px 24px;
+
+    }
+
+
+    .dashboard-vault-teaser-card{
+
+        padding:42px 24px;
+
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    .dashboard-hero-card h1{
+
+        font-size:2.4rem;
+
+    }
+
+
+    .dashboard-card{
+
+        min-height:230px;
+
+        padding:23px;
+
+    }
+
+
+    .dashboard-card-icon{
+
+        width:52px;
+
+        height:52px;
+
+        font-size:1.45rem;
+
+    }
+
+}
