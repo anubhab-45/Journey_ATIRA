@@ -13,21 +13,26 @@ const daysElement = getCounterElement("loveDays", "counterDays");
 const hoursElement = getCounterElement("loveHours", "counterHours");
 const minutesElement = getCounterElement("loveMinutes", "counterMinutes");
 const secondsElement = getCounterElement("loveSeconds", "counterSeconds");
+const aboutDaysStat = document.querySelector(".about-stat-number[data-countup-days]");
+
+function getRelationshipParts() {
+    const difference = Math.max(0, Date.now() - relationshipStart.getTime());
+    const totalSeconds = Math.floor(difference / 1000);
+    return {
+        days: Math.floor(totalSeconds / 86400),
+        hours: Math.floor((totalSeconds % 86400) / 3600),
+        minutes: Math.floor((totalSeconds % 3600) / 60),
+        seconds: totalSeconds % 60
+    };
+}
 
 function updateLoveCounter() {
-    const now = new Date();
-    const difference = Math.max(0, now.getTime() - relationshipStart.getTime());
-    const totalSeconds = Math.floor(difference / 1000);
-
-    const days = Math.floor(totalSeconds / 86400);
-    const hours = Math.floor((totalSeconds % 86400) / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    const seconds = totalSeconds % 60;
-
+    const { days, hours, minutes, seconds } = getRelationshipParts();
     if (daysElement) daysElement.textContent = String(days);
     if (hoursElement) hoursElement.textContent = String(hours).padStart(2, "0");
     if (minutesElement) minutesElement.textContent = String(minutes).padStart(2, "0");
     if (secondsElement) secondsElement.textContent = String(seconds).padStart(2, "0");
+    if (aboutDaysStat) aboutDaysStat.textContent = String(days);
 }
 
 function animateStatCounter(element) {
@@ -45,29 +50,27 @@ function animateStatCounter(element) {
         if (progress < 1) requestAnimationFrame(tick);
         else element.textContent = String(target);
     }
-
     requestAnimationFrame(tick);
 }
 
 function initStatCounters() {
     const counters = document.querySelectorAll(".about-stat-number[data-count]");
-    if (!counters.length) return;
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateStatCounter(entry.target);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.25 });
-
-    counters.forEach(counter => observer.observe(counter));
+    counters.forEach(counter => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStatCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.25 });
+        observer.observe(counter);
+    });
 }
 
 function initReveal() {
     const revealElements = document.querySelectorAll(
-        ".about-section, .hero-box, .counter-box, .little-card, .dreams-box, .quote-box, .about-stat-card, .about-purpose-card"
+        ".about-hero-card, .about-story-card, .about-stat-card, .about-purpose-card, .about-counter-card, .about-promise-card, .about-final-card"
     );
     if (!revealElements.length) return;
 
@@ -78,7 +81,7 @@ function initReveal() {
                 revealObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12 });
 
     revealElements.forEach(element => {
         element.classList.add("about-reveal");
@@ -98,7 +101,6 @@ function createHearts() {
     const heartContainer = document.createElement("div");
     heartContainer.className = "anniversary-hearts";
     document.body.appendChild(heartContainer);
-
     for (let i = 0; i < 18; i++) {
         const heart = document.createElement("span");
         heart.textContent = "❤";
@@ -115,9 +117,6 @@ function initAboutPage() {
     initStatCounters();
     initReveal();
     checkAnniversary();
-
-    console.log("ATIRA'S JOURNEY — About Page Loaded");
-    console.log("Together since 14 August 2025 ❤️");
 }
 
 if (document.readyState === "loading") {
