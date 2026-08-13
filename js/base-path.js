@@ -1,14 +1,1 @@
-(function () {
-    const base = document.createElement('base');
-    const path = window.location.pathname || '/';
-    const segments = path.split('/').filter(Boolean);
-    const isGitHubPages = window.location.hostname.includes('github.io');
-
-    if (isGitHubPages && segments.length > 0) {
-        base.href = '/' + segments[0] + '/';
-    } else {
-        base.href = './';
-    }
-
-    document.head.insertBefore(base, document.head.firstChild);
-})();
+(function(){const base=document.createElement('base');const path=window.location.pathname||'/';const segments=path.split('/').filter(Boolean);const isGitHubPages=window.location.hostname.includes('github.io');base.href=isGitHubPages&&segments.length>0?'/'+segments[0]+'/':'./';document.head.insertBefore(base,document.head.firstChild);document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('a[href$="music.html"]').forEach(a=>a.remove());if(!document.getElementById('siteMusicLoader')){const s=document.createElement('script');s.id='siteMusicLoader';s.src='js/site-music.js';document.body.appendChild(s)}})})();
