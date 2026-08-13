@@ -15,6 +15,15 @@ const minutesElement = getCounterElement("loveMinutes", "counterMinutes");
 const secondsElement = getCounterElement("loveSeconds", "counterSeconds");
 const aboutDaysStat = document.querySelector(".about-stat-number[data-countup-days]");
 
+function loadAboutFixStyles() {
+    if (document.getElementById("aboutFixStyles")) return;
+    const link = document.createElement("link");
+    link.id = "aboutFixStyles";
+    link.rel = "stylesheet";
+    link.href = "css/about-fix.css";
+    document.head.appendChild(link);
+}
+
 function getRelationshipParts() {
     const difference = Math.max(0, Date.now() - relationshipStart.getTime());
     const totalSeconds = Math.floor(difference / 1000);
@@ -39,10 +48,8 @@ function animateStatCounter(element) {
     if (!element) return;
     const target = Number(element.dataset.count);
     if (!Number.isFinite(target)) return;
-
     const duration = 1400;
     const start = performance.now();
-
     function tick(now) {
         const progress = Math.min(1, (now - start) / duration);
         const eased = 1 - Math.pow(1 - progress, 3);
@@ -73,7 +80,6 @@ function initReveal() {
         ".about-hero-card, .about-story-card, .about-stat-card, .about-purpose-card, .about-counter-card, .about-promise-card, .about-final-card"
     );
     if (!revealElements.length) return;
-
     const revealObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -82,7 +88,6 @@ function initReveal() {
             }
         });
     }, { threshold: 0.12 });
-
     revealElements.forEach(element => {
         element.classList.add("about-reveal");
         revealObserver.observe(element);
@@ -112,6 +117,7 @@ function createHearts() {
 }
 
 function initAboutPage() {
+    loadAboutFixStyles();
     updateLoveCounter();
     setInterval(updateLoveCounter, 1000);
     initStatCounters();
