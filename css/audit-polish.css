@@ -1,0 +1,91 @@
+/* ATIRA'S JOURNEY — audit report polish */
+
+/* Sitewide: pull dynamic content closer to its controls. */
+.gallery-section{padding-top:10px}
+.gallery-section>.container{padding-top:0}
+.gallery-grid{margin-top:0}
+.letters-section{padding-top:28px}
+.letters-controls-section{padding-bottom:12px}
+.timeline-section{padding-top:34px}
+
+/* Dashboard: make the destination cards feel interactive and intentional. */
+.dashboard-card{transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease,background .35s ease}
+.dashboard-card:hover{transform:translateY(-8px) scale(1.015);box-shadow:0 28px 70px rgba(0,0,0,.38),0 0 36px rgba(217,4,41,.14);border-color:rgba(255,143,171,.3)}
+.dashboard-card:hover .dashboard-card-icon{transform:scale(1.08) translateY(-2px)}
+.dashboard-card-icon{transition:transform .35s ease}
+
+/* Gallery: curated album instead of rigid thumbnail boxes. JS assigns the natural ratio. */
+.gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+.gallery-item{min-height:0;aspect-ratio:auto;height:auto}
+.gallery-item-media{position:absolute}
+.gallery-item-media img,.gallery-item-media video{object-fit:cover}
+.gallery-category[data-default-tag="true"]{display:none}
+.gallery-overlay p.audit-template-caption,.timeline-card-description.audit-template-caption{display:none}
+
+/* Videos: clearly communicate that cards are playable media. */
+body.audit-videos .gallery-filter{display:none}
+body.audit-videos .gallery-hero{padding-bottom:24px}
+body.audit-videos #videoGrid{margin-top:0}
+.audit-video-duration{position:absolute;right:17px;bottom:17px;z-index:6;padding:5px 9px;border-radius:7px;background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.12);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.5px;backdrop-filter:blur(8px)}
+body.audit-videos .gallery-item{min-height:330px}
+
+/* Memories: make the page a real chronological timeline. */
+body.audit-timeline .timeline-section{padding-top:24px}
+body.audit-timeline .timeline-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 4px minmax(0,1fr);column-gap:34px;row-gap:52px;padding:32px 0 60px}
+body.audit-timeline .timeline-grid::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:4px;transform:translateX(-50%);border-radius:999px;background:linear-gradient(180deg,transparent,#d90429 8%,#ff8fab 50%,#d90429 92%,transparent);box-shadow:0 0 24px rgba(217,4,41,.25)}
+body.audit-timeline .timeline-card{grid-column:1;position:relative;width:100%;margin:0}
+body.audit-timeline .timeline-card:nth-child(even){grid-column:3}
+body.audit-timeline .timeline-card::after{content:"";position:absolute;top:34px;width:16px;height:16px;border-radius:50%;background:#ff8fab;border:4px solid #0d0612;box-shadow:0 0 0 1px rgba(255,143,171,.55),0 0 22px rgba(217,4,41,.45);z-index:8}
+body.audit-timeline .timeline-card:nth-child(odd)::after{right:-43px}
+body.audit-timeline .timeline-card:nth-child(even)::after{left:-43px}
+body.audit-timeline .timeline-card-date{display:inline-flex;margin-top:12px;padding:5px 10px;border-radius:999px;background:rgba(217,4,41,.12);border:1px solid rgba(255,143,171,.16);color:#ffadc0;font-size:.7rem;letter-spacing:1px}
+body.audit-timeline .timeline-card-category{font-size:.62rem}
+body.audit-timeline .timeline-heading{text-align:center;max-width:720px;margin:0 auto 12px}
+
+/* Letters: paper/stationery treatment, intentionally warmer than media pages. */
+body.audit-letters .letters-grid{gap:26px}
+body.audit-letters .letter-card,body.audit-letters .letters-card{background:linear-gradient(135deg,rgba(245,231,211,.96),rgba(224,203,179,.9));color:#281d1b;border:1px solid rgba(255,218,185,.5);box-shadow:0 22px 55px rgba(0,0,0,.28);position:relative;overflow:hidden}
+body.audit-letters .letter-card::after,body.audit-letters .letters-card::after{content:"";position:absolute;right:16px;top:16px;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffb6c8,#b51f43 62%,#681127);box-shadow:0 5px 15px rgba(0,0,0,.25)}
+body.audit-letters .letter-card h3,body.audit-letters .letters-card h3{font-family:Georgia,"Times New Roman",serif;color:#332322}
+body.audit-letters .letter-card p,body.audit-letters .letters-card p{font-family:Georgia,"Times New Roman",serif;color:#594541}
+body.audit-letters .letters-controls{border-color:rgba(255,218,185,.16)}
+
+/* Music: make metadata visibly reliable once audio metadata is available. */
+body.audit-music .music-player{box-shadow:0 28px 80px rgba(0,0,0,.32),0 0 45px rgba(217,4,41,.1)}
+body.audit-music #duration.audit-duration-ready{color:#ffadc0}
+body.audit-music .playlist-section{padding-top:48px}
+
+/* About: unify stats with the polished homepage-card language. */
+body.audit-about .about-stats-grid{gap:22px}
+body.audit-about .about-stat-card{transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;background:linear-gradient(135deg,rgba(255,255,255,.075),rgba(255,255,255,.025))}
+body.audit-about .about-stat-card:hover{transform:translateY(-6px);box-shadow:0 24px 65px rgba(0,0,0,.32),0 0 30px rgba(217,4,41,.12);border-color:rgba(255,143,171,.24)}
+body.audit-about .about-stat-number{font-size:clamp(2.3rem,5vw,3.7rem);text-shadow:0 0 28px rgba(217,4,41,.16)}
+
+/* Vault: premium climax — custom lock treatment and a subtle ending celebration. */
+body.audit-vault .vault-grid{gap:26px}
+body.audit-vault .vault-card{transition:transform .4s ease,box-shadow .4s ease,border-color .4s ease}
+body.audit-vault .vault-card:hover{transform:translateY(-7px);box-shadow:0 30px 80px rgba(0,0,0,.38),0 0 40px rgba(217,4,41,.16);border-color:rgba(255,143,171,.3)}
+body.audit-vault .vault-ending-card{position:relative;overflow:hidden}
+body.audit-vault .vault-ending-card::before{content:"";position:absolute;inset:15%;border-radius:50%;background:radial-gradient(circle,rgba(255,143,171,.1),transparent 68%);animation:auditVaultGlow 3.4s ease-in-out infinite;pointer-events:none}
+body.audit-vault .vault-ending-card .ending-heart{position:relative;z-index:2;animation:auditHeartbeat 1.7s ease-in-out infinite}
+body.audit-vault .vault-symbol,body.audit-vault .unlock-icon,body.audit-vault .ending-symbol{filter:drop-shadow(0 0 14px rgba(255,143,171,.22))}
+@keyframes auditVaultGlow{0%,100%{transform:scale(.92);opacity:.45}50%{transform:scale(1.08);opacity:1}}
+@keyframes auditHeartbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.14)}30%{transform:scale(1)}45%{transform:scale(1.09)}60%{transform:scale(1)}}
+
+@media(max-width:900px){
+  .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  body.audit-timeline .timeline-grid{grid-template-columns:20px minmax(0,1fr);column-gap:18px}
+  body.audit-timeline .timeline-grid::before{left:10px}
+  body.audit-timeline .timeline-card,.body.audit-timeline .timeline-card:nth-child(even),body.audit-timeline .timeline-card:nth-child(odd){grid-column:2}
+  body.audit-timeline .timeline-card::after,body.audit-timeline .timeline-card:nth-child(even)::after,body.audit-timeline .timeline-card:nth-child(odd)::after{left:-25px;right:auto}
+}
+@media(max-width:600px){
+  .gallery-grid{grid-template-columns:1fr}
+  .gallery-section{padding-bottom:70px}
+  body.audit-timeline .timeline-grid{padding-top:20px;row-gap:32px}
+  body.audit-timeline .timeline-card::after,body.audit-timeline .timeline-card:nth-child(even)::after,body.audit-timeline .timeline-card:nth-child(odd)::after{width:12px;height:12px;border-width:3px;left:-23px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  body.audit-vault .vault-ending-card::before,body.audit-vault .vault-ending-card .ending-heart{animation:none}
+}
