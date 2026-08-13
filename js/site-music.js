@@ -1,4 +1,239 @@
-(()=>{const css=document.createElement('style');css.textContent='.site-music-player{position:fixed;right:18px;bottom:18px;z-index:9998;width:min(380px,calc(100vw - 28px));display:flex;gap:10px;align-items:center;padding:10px;border:1px solid #ffffff1c;border-radius:18px;background:#0d0612d0;backdrop-filter:blur(18px);color:#fff}.site-music-cover{width:48px;height:48px;padding:0;border:0;border-radius:11px;overflow:hidden;background:#221326}.site-music-cover img{width:100%;height:100%;object-fit:cover}.site-music-meta{min-width:0;flex:1;display:grid}.site-music-meta small{font-size:8px;letter-spacing:.16em;opacity:.55}.site-music-meta strong,.site-music-meta span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.site-music-meta strong{font-size:12px}.site-music-meta span{font-size:10px;opacity:.6}.site-music-player button{border:0;background:none;color:#fff;cursor:pointer}.site-music-progress{position:absolute;left:70px;right:15px;bottom:4px;width:calc(100% - 85px);accent-color:#d98aa8}.memory-distribution{padding:50px 0 25px}.memory-rail{display:flex;gap:12px;overflow:auto;padding:8px 0 14px}.memory-rail img{width:140px;height:175px;flex:0 0 140px;object-fit:cover;border-radius:14px;cursor:pointer}.memory-viewer{position:fixed;inset:0;z-index:10001;display:grid;place-items:center;background:#040207f5}.memory-viewer img{max-width:94vw;max-height:86vh;object-fit:contain}.memory-viewer button{position:absolute;top:12px;right:18px;background:none;border:0;color:#fff;font-size:32px}@media(max-width:600px){.site-music-player{right:8px;bottom:8px;width:calc(100vw - 16px)}.site-music-progress{left:68px;width:calc(100% - 82px)}}';document.head.appendChild(css);
-const songs=[['Perfect','Ed Sheeran','Theme.mp3'],['Until I Found You','Stephen Sanchez','Gallery.mp3'],['Kesariya','Arijit Singh','Letteres.mp3'],['Raataan Lambiyan','Jubin Nautiyal','Timeline.mp3'],['Apna Bana Le','Arijit Singh','bonus.mp3']];let i=0;const path='assets/audio/';const fmt=v=>Number.isFinite(v)?`${Math.floor(v/60)}:${Math.floor(v%60).toString().padStart(2,'0')}`:'0:00';function music(){if(document.getElementById('siteMusicPlayer'))return;const p=document.createElement('aside');p.id='siteMusicPlayer';p.className='site-music-player';p.innerHTML='<button id="smPrev">⏮</button><div class="site-music-meta"><small>OUR SOUNDTRACK</small><strong id="smTitle">—</strong><span id="smArtist">—</span></div><button id="smPlay">▶</button><button id="smNext">⏭</button><input id="smProgress" class="site-music-progress" type="range" min="0" max="100" value="0">';document.body.appendChild(p);const a=new Audio(),title=document.getElementById('smTitle'),artist=document.getElementById('smArtist'),play=document.getElementById('smPlay'),prog=document.getElementById('smProgress');const load=(n,auto)=>{i=(n+songs.length)%songs.length;title.textContent=songs[i][0];artist.textContent=songs[i][1];a.src=path+songs[i][2];a.load();if(auto)a.play().catch(()=>{})};document.getElementById('smPrev').onclick=()=>load(i-1,true);document.getElementById('smNext').onclick=()=>load(i+1,true);play.onclick=()=>a.paused?a.play().catch(()=>{}):a.pause();a.onplay=()=>play.textContent='⏸';a.onpause=()=>play.textContent='▶';a.onended=()=>load(i+1,true);a.ontimeupdate=()=>{if(a.duration)prog.value=a.currentTime/a.duration*100};prog.oninput=()=>{if(a.duration)a.currentTime=prog.value/100*a.duration};load(0,false)}
-function memories(){const page=(location.pathname.split('/').pop()||'index.html').replace('.html','');if(page==='gallery'||!Array.isArray(window.memories))return;const map={index:0,dashboard:1,timeline:3,letters:4,about:5,vault:6};const b=map[page];if(b===undefined)return;const items=window.memories.filter(x=>x&&x.type!=='video').filter((_,n)=>n%7===b);if(!items.length)return;const s=document.createElement('section');s.className='memory-distribution';s.innerHTML='<div class="container"><small>FROM OUR JOURNEY</small><h2>A Few Moments, Kept Close</h2><div class="memory-rail"></div></div>';const r=s.querySelector('.memory-rail');items.forEach(m=>{const x=document.createElement('img');x.src=m.src;x.alt=m.title||'Memory';x.loading='lazy';x.onclick=()=>{const v=document.createElement('div');v.className='memory-viewer';v.innerHTML='<button>×</button><img src="'+m.src+'" alt="Memory">';v.onclick=e=>{if(e.target===v||e.target.tagName==='BUTTON')v.remove()};document.body.appendChild(v)};r.appendChild(x)});(document.querySelector('main')||document.body).appendChild(s)}
-function init(){music();if(Array.isArray(window.memories))memories();else{const s=document.createElement('script');s.src='data/memories.js';s.onload=memories;document.body.appendChild(s)}}document.readyState==='loading'?document.addEventListener('DOMContentLoaded',init,{once:true}):init()})();
+(() => {
+    const STYLE = `
+        .site-music-player{
+            position:fixed;
+            right:18px;
+            bottom:18px;
+            z-index:9998;
+            width:min(380px,calc(100vw - 28px));
+            display:flex;
+            gap:10px;
+            align-items:center;
+            padding:12px 12px 18px;
+            border:1px solid rgba(255,255,255,.12);
+            border-radius:18px;
+            background:rgba(13,6,18,.92);
+            backdrop-filter:blur(18px);
+            -webkit-backdrop-filter:blur(18px);
+            color:#fff;
+            box-shadow:0 18px 45px rgba(0,0,0,.35);
+        }
+        .site-music-cover{width:46px;height:46px;padding:0;border:0;border-radius:10px;overflow:hidden;background:#221326;flex:0 0 auto}
+        .site-music-meta{min-width:0;flex:1;display:grid;gap:2px}
+        .site-music-meta small{font-size:8px;letter-spacing:.16em;opacity:.55}
+        .site-music-meta strong,.site-music-meta span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .site-music-meta strong{font-size:12px}
+        .site-music-meta span{font-size:10px;opacity:.6}
+        .site-music-player button{border:0;background:none;color:#fff;cursor:pointer;font-size:16px;padding:4px}
+        .site-music-progress{position:absolute;left:64px;right:14px;bottom:5px;width:calc(100% - 78px);accent-color:#ff8fab}
+        .site-music-active main,.site-music-active .site-footer{padding-bottom:120px}
+        .site-music-active .back-to-top{bottom:112px}
+        .timeline-card-date{display:none!important}
+        @media(max-width:700px){
+            .site-music-player{right:8px;bottom:8px;width:calc(100vw - 16px)}
+            .site-music-active main,.site-music-active .site-footer{padding-bottom:108px}
+            .site-music-active .back-to-top{bottom:104px}
+        }
+    `;
+
+    if (!document.getElementById("siteMusicStyles")) {
+        const style = document.createElement("style");
+        style.id = "siteMusicStyles";
+        style.textContent = STYLE;
+        document.head.appendChild(style);
+    }
+
+    const songs = [
+        ["Perfect", "Ed Sheeran", "Theme.mp3"],
+        ["Until I Found You", "Stephen Sanchez", "Gallery.mp3"],
+        ["Kesariya", "Arijit Singh", "Letteres.mp3"],
+        ["Raataan Lambiyan", "Jubin Nautiyal", "Timeline.mp3"],
+        ["Apna Bana Le", "Arijit Singh", "bonus.mp3"]
+    ];
+
+    const STORAGE_KEY = "atiraJourneyMusicState";
+    const AUDIO_PATH = "assets/audio/";
+    let index = 0;
+    let audio = null;
+    let progress = null;
+    let playButton = null;
+
+    const formatTime = (value) => {
+        if (!Number.isFinite(value)) return "0:00";
+        return `${Math.floor(value / 60)}:${Math.floor(value % 60).toString().padStart(2, "0")}`;
+    };
+
+    const saveState = () => {
+        if (!audio) return;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            index,
+            currentTime: Number.isFinite(audio.currentTime) ? audio.currentTime : 0,
+            playing: !audio.paused
+        }));
+    };
+
+    const readState = () => {
+        try {
+            const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+            if (!saved || typeof saved !== "object") return null;
+            return {
+                index: Number.isInteger(saved.index) ? saved.index : 0,
+                currentTime: Number.isFinite(saved.currentTime) ? saved.currentTime : 0,
+                playing: Boolean(saved.playing)
+            };
+        } catch {
+            return null;
+        }
+    };
+
+    function createPlayer() {
+        if (document.getElementById("siteMusicPlayer")) return;
+
+        const player = document.createElement("aside");
+        player.id = "siteMusicPlayer";
+        player.className = "site-music-player";
+        player.setAttribute("aria-label", "Our soundtrack player");
+        player.innerHTML = `
+            <button id="smPrev" type="button" aria-label="Previous track">⏮</button>
+            <div class="site-music-meta">
+                <small>OUR SOUNDTRACK</small>
+                <strong id="smTitle">—</strong>
+                <span id="smArtist">—</span>
+            </div>
+            <button id="smPlay" type="button" aria-label="Play or pause">▶</button>
+            <button id="smNext" type="button" aria-label="Next track">⏭</button>
+            <input id="smProgress" class="site-music-progress" type="range" min="0" max="100" value="0" aria-label="Track progress">
+        `;
+        document.body.appendChild(player);
+        document.body.classList.add("site-music-active");
+
+        const title = document.getElementById("smTitle");
+        const artist = document.getElementById("smArtist");
+        playButton = document.getElementById("smPlay");
+        progress = document.getElementById("smProgress");
+        audio = new Audio();
+        audio.preload = "auto";
+
+        const loadTrack = (nextIndex, attemptPlay = false, seekTo = 0) => {
+            index = (nextIndex + songs.length) % songs.length;
+            title.textContent = songs[index][0];
+            artist.textContent = songs[index][1];
+            audio.src = AUDIO_PATH + songs[index][2];
+            audio.load();
+
+            audio.addEventListener("loadedmetadata", () => {
+                if (seekTo > 0 && seekTo < audio.duration) audio.currentTime = seekTo;
+            }, { once: true });
+
+            if (attemptPlay) audio.play().catch(() => {});
+        };
+
+        document.getElementById("smPrev").onclick = () => loadTrack(index - 1, true);
+        document.getElementById("smNext").onclick = () => loadTrack(index + 1, true);
+        playButton.onclick = () => audio.paused ? audio.play().catch(() => {}) : audio.pause();
+
+        audio.addEventListener("play", () => {
+            playButton.textContent = "⏸";
+            playButton.setAttribute("aria-label", "Pause");
+            saveState();
+        });
+
+        audio.addEventListener("pause", () => {
+            playButton.textContent = "▶";
+            playButton.setAttribute("aria-label", "Play");
+            saveState();
+        });
+
+        audio.addEventListener("ended", () => loadTrack(index + 1, true));
+
+        audio.addEventListener("timeupdate", () => {
+            if (audio.duration) progress.value = (audio.currentTime / audio.duration) * 100;
+        });
+
+        progress.oninput = () => {
+            if (audio.duration) audio.currentTime = (progress.value / 100) * audio.duration;
+        };
+
+        window.addEventListener("pagehide", saveState);
+        window.addEventListener("beforeunload", saveState);
+
+        const saved = readState();
+        if (saved) {
+            loadTrack(saved.index, false, saved.currentTime);
+            if (saved.playing) {
+                const tryResume = () => {
+                    audio.play().catch(() => {
+                        /* Browser may require a user gesture on a fresh page. */
+                    });
+                    window.removeEventListener("pointerdown", tryResume);
+                    window.removeEventListener("keydown", tryResume);
+                };
+                window.addEventListener("pointerdown", tryResume, { once: true });
+                window.addEventListener("keydown", tryResume, { once: true });
+            }
+        } else {
+            loadTrack(0, false);
+        }
+    }
+
+    function distributeMemories() {
+        const page = (location.pathname.split("/").pop() || "index.html").replace(".html", "");
+        if (page === "gallery" || !Array.isArray(window.memories)) return;
+
+        const map = { index: 0, dashboard: 1, timeline: 3, letters: 4, about: 5, vault: 6 };
+        const bucket = map[page];
+        if (bucket === undefined) return;
+
+        const items = window.memories
+            .filter(item => item && item.type !== "video")
+            .filter((_, n) => n % 7 === bucket);
+
+        if (!items.length) return;
+
+        const section = document.createElement("section");
+        section.className = "memory-distribution";
+        section.innerHTML = `
+            <div class="container">
+                <small>FROM OUR JOURNEY</small>
+                <h2>A Few Moments, Kept Close</h2>
+                <div class="memory-rail"></div>
+            </div>
+        `;
+
+        const rail = section.querySelector(".memory-rail");
+        items.forEach(memory => {
+            const image = document.createElement("img");
+            image.src = memory.src;
+            image.alt = memory.title || "Memory";
+            image.loading = "lazy";
+            image.onclick = () => {
+                const viewer = document.createElement("div");
+                viewer.className = "memory-viewer";
+                viewer.innerHTML = `<button type="button" aria-label="Close">×</button><img src="${memory.src}" alt="Memory">`;
+                viewer.onclick = event => {
+                    if (event.target === viewer || event.target.tagName === "BUTTON") viewer.remove();
+                };
+                document.body.appendChild(viewer);
+            };
+            rail.appendChild(image);
+        });
+
+        (document.querySelector("main") || document.body).appendChild(section);
+    }
+
+    function init() {
+        createPlayer();
+        if (Array.isArray(window.memories)) {
+            distributeMemories();
+        } else {
+            const script = document.createElement("script");
+            script.src = "data/memories.js";
+            script.onload = distributeMemories;
+            document.body.appendChild(script);
+        }
+    }
+
+    document.readyState === "loading"
+        ? document.addEventListener("DOMContentLoaded", init, { once: true })
+        : init();
+})();
